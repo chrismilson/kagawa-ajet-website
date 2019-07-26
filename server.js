@@ -15,5 +15,8 @@ app.get('/api/customers', (req, res) => {
 });
 
 app.use(express.static(path.join(__dirname, 'client/build')));
+app.get('*', (req, res) => {
+  res.sendfile(path.join(__dirname = 'client/build/index.html'));
+});
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`))
