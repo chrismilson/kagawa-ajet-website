@@ -76,7 +76,7 @@ const dests = [
 
 function Destination(props) {
   return (
-    <div className="Destination">
+    <div className="Destination text">
       <h1>{props.dest.name}</h1>
       {props.dest.description ?
         props.dest.description : (
