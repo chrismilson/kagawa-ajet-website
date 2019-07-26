@@ -1,6 +1,8 @@
 import React from 'react';
 import Page from './Page';
 
+import './Calendar.scss';
+
 function Calendar(props) {
   return (
     <Page>

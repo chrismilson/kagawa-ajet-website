@@ -1,11 +1,13 @@
 .Page {
 	margin: 0 auto auto;
+	width: 100%;
 	
 	.row {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
 		max-width: 50rem;
+		margin: 0 auto;
 	}
 	
 	.col {

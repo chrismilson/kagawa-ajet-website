@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Nav(props) {
   return (
-    <div className="Nav">
+    <div className={'Nav ' + props.className}>
       {
         props.pages.map((page, idx) => {
           return (

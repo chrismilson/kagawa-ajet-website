@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.scss';
 
 // Components
@@ -54,27 +54,30 @@ const config = {
 
 function App() {
   return (
-    <Switch>
-      <div className="App">
+    <div className="App">
+      <BrowserRouter>
         <Header
           title={config.title}
           pages={config.pages}
         />
-        {
-          config.pages.map(page => {
-            return (
-              <Route
-                key={'page-' + page.name}
-                exact={page.isExactPath}
-                path={page.path}
-                component={page.component}
-              />
-            )
-          })
-        }
+        <Switch>
+          {
+            config.pages.map(page => {
+              return (
+                <Route
+                  key={'page-' + page.name}
+                  exact={page.isExactPath}
+                  path={page.path}
+                  component={page.component}
+                />
+              )
+            })
+          }
+          <Route component={Default} />
+        </Switch>
         <Footer />
-      </div>
-    </Switch>
+      </BrowserRouter>
+    </div>
   );
 }
 

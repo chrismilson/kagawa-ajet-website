@@ -107,7 +107,12 @@ function Destination(props) {
 
 function MenuItem(props) {
   return (
-    <Link className="MenuItem" to={'destinations/' + props.dest.name}>
+    <Link
+      className="MenuItem"
+      to={
+        'destinations/' + props.dest.name.toLowerCase()
+      }
+    >
       <img src={props.dest.img} alt={props.dest.name} />
       <h3>{props.dest.name}</h3>
     </Link>
@@ -130,17 +135,16 @@ function Destinations(props) {
   return (
     <Page>
       <div className="Destinations row">
-        <Router>
-          <Route exact path="/destinations" component={Menu} />
-          {
-            dests.map((d, idx) => (
-              <Route
-                path={'/destinations/' + d.name}
-                render={() => (<Destination dest={d} />)}
-              />
-            ))
-          }
-        </Router>
+        <Route exact path="/destinations" component={Menu} />
+        {
+          dests.map((d, idx) => (
+            <Route
+              key={idx}
+              path={'/destinations/' + d.name}
+              render={() => (<Destination dest={d} />)}
+            />
+          ))
+        }
       </div>
     </Page>
   )

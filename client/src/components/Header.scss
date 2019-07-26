@@ -13,6 +13,10 @@
 
   .title {
     padding: 0 1rem;
+
+    h1 {
+      white-space: nowrap;
+    }
   }
 
   .Nav {
@@ -36,7 +40,7 @@
     }
   }
 
-  .icon {
+  .MobileMenu {
     display: none;
   }
 
@@ -44,10 +48,40 @@
     .Nav {
       display: none;
     }
+    
+    .MobileMenu {
+      display: flex;
+      
+      .Nav {
+        display: flex;
+        overflow: hidden;
+        background-color: rgba($color-2, 0.9);
+        flex-direction: column;
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        transition: height 0.5s;
 
+        a {
+          padding: 1rem 0;
+          width: 100vw;
+        }
+      }
+
+      .visible {
+        height: calc(100vh - 5rem);
+      }
+
+      .not-visible {
+        height: 0;
+      }
+    }
+
+    cursor: pointer;
     .icon {
       display: block;
       height: 100%;
+      padding: 0 2rem;
     }
   }
 }

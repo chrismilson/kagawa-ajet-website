@@ -15,14 +15,14 @@ const content = [
 function Home(props) {
   return (
     <Page>
-      <div className="Home row">
+      <div className="Home">
+        <div id="udonnw" className="col">
+          <img src={udonnw} alt="Udon Brain" />
+        </div>
         <div className="col text">
           {
             content.map((p, idx) => (<p key={idx}>{p}</p>))
           }
-        </div>
-        <div id="udonnw" className="col">
-          <img src={udonnw} alt="Udon Brain" />
         </div>
       </div>
     </Page>
