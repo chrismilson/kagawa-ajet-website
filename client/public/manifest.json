@@ -1,0 +1,7 @@
+{
+	"short_name": "AJET",
+	"name": "Kagawa AJET",
+	"background_color": "#659DBD",
+	"start_url": "/",
+	"display": "standalone"
+}

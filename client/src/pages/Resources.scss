@@ -1,0 +1,35 @@
+.Resources {
+    .res-list {
+        display: flex;
+        flex-wrap: wrap;
+
+        h-line {
+            display: none;
+        }
+    }
+
+    .Resource {
+        width: 50%;
+
+        .title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .description {
+            width: 100%;
+            padding: 1rem;
+        }
+
+    }
+    
+    @media only screen and (max-width: 600px) {
+        .h-line {
+            display: block;
+        }
+
+        .Resource {
+            width: 100%;
+        }
+    }
+}

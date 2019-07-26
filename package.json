@@ -1,0 +1,36 @@
+{
+  "name": "kagawa-ajet-website",
+  "version": "1.0.0",
+  "description": "This is a website for the Kagawa AJET - information for aspiring, current, and past JETs.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrismilson/kagawa-ajet-website.git"
+  },
+  "keywords": [
+    "Kagawa",
+    "AJET",
+    "JET",
+    "Japan",
+    "Teaching"
+  ],
+  "author": "Chris Milson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrismilson/kagawa-ajet-website/issues"
+  },
+  "homepage": "https://github.com/chrismilson/kagawa-ajet-website#readme",
+  "dependencies": {
+    "concurrently": "^4.1.1",
+    "express": "^4.17.1",
+    "react-icons": "^3.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
