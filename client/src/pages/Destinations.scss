@@ -18,5 +18,17 @@
         object-fit: cover;
       }
     }
+
+    @media only screen and (max-width: 600px) {
+      .MenuItem {
+        width: 50%;
+      }
+    }
+
+    @media only screen and (max-width: 400px) {
+      .MenuItem {
+        width: 100%;
+      }
+    }
   }
 }
