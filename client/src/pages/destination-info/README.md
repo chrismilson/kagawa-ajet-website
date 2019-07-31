@@ -19,7 +19,7 @@ of  place names with the name of the new place.
 The data will be loaded onto the page dynamically, so after updating the 
 ```index.js```  file, the website will do the rest.
 
-### Thumbnails
+### Thumbnails 
 
 If you create a new page, please also include a thumbnail for the page in the
 thumbs folder.
