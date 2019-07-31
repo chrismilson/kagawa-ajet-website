@@ -1,11 +1,11 @@
-import React from 'react';
-import Page from './Page';
+import React from 'react'
+import Page from './Page'
 
-function Default() {
+function Default () {
   return (
     <Page>
-      <div className="Default row">
-        <div className="col">
+      <div className='Default row'>
+        <div className='col'>
           <h1>Page not found...</h1>
           <p>
             Oh dear...
@@ -17,4 +17,4 @@ function Default() {
   )
 }
 
-export default Default;
+export default Default

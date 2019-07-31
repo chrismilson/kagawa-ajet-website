@@ -1,17 +1,17 @@
-import React from 'react';
-import Page from './Page';
+import React from 'react'
+import Page from './Page'
 
 const contacts = [
   {
     position: ''
   }
-];
+]
 
-function Contact(props) {
+function Contact (props) {
   return (
     <Page>
-      <div className="Contact row">
-        <div className="col text">
+      <div className='Contact row'>
+        <div className='col text'>
           <h1>Get in touch</h1>
           <p>
             We are available where you need us!
@@ -22,4 +22,4 @@ function Contact(props) {
   )
 }
 
-export default Contact;
+export default Contact
