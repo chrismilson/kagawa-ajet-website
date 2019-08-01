@@ -1,7 +1,7 @@
 import React from 'react'
 import Page from './Page'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown/with-html'
 import axios from 'axios'
 import * as Fa from 'react-icons/fa'
 
@@ -58,6 +58,7 @@ class Destination extends React.Component {
       <div className='Destination'>
         <ReactMarkdown
           source={this.state.md}
+          escapeHtml={false}
           renderers={{
             link: RouterLink
             // The problem has not been fixed in react-markdown, so NO EMOJIS
