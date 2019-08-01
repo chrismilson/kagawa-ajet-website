@@ -28,31 +28,31 @@ temples in one day.
 
 ## Suggested Hanami Locations
 
-- Shuinde Yama
+- **Shuinde Yama**
     - Although technically past Nio to the North, Mt. Shuinde is worth the
     drive, cycle, or long walk out to the park. Once at the park, you won't be
     disappointed. Surrounded by both the the Seto Inland Sea and the sakura, you
     won't know where to look first. There is also a nice little cafe that serves
     zenzai, tea, coffee, cakes, and sometimes other snacks.
 
-- Fudonotaki
+- **Fudonotaki**
 
-- Kotohiki Koen
+- **Kotohiki Koen**
 
 ## Suggested Restaurants and Izakayas
 
-- Kanakuma Mochi
+- **Kanakuma Mochi**
     - Most famous for tasty udon, but also for the year-round availability of
     Kagawa-style Ozoni (a traditional dish during New Years). It is between
     Kotohiki Koen and Fudonotaki.
 
-- Umajima Udon
+- **Umajima Udon**
     - Another udon favorite among locals.
 
-- Gigi
+- **Gigi**
     - A nice izakaya with a hip atmosphere and friendly staff. Just around the
     corner from the train station.
 
-- Uzura
+- **Uzura**
     - Actually in Toyohama, but a nice izakaya right along the sea. Not the
     cheapest or most convenient place to go, but a worthwhile trip.
