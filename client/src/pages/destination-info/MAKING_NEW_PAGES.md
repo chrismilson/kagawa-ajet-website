@@ -11,8 +11,7 @@ When creating a new page please take the following into account:
     and with hyphens instead of spaces.
     - Use the ```.md``` file extention.
 
-- You can fill the page with any markdown you like however, HTML code will
-be skipped.
+- You can fill the page with any markdown you like.
 
 - Please do not exceed a line width of 80 characters.
 
