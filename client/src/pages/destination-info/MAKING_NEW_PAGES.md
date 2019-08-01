@@ -6,13 +6,17 @@ This folder is to contain the body text for destination pages in markdown.
 
 When creating a new page please take the following into account:
 
-1. Create a new markdown page.
+- Create a new markdown page.
     - The title should be the name of the destination in lower case
     and with hyphens instead of spaces.
     - Use the ```.md``` file extention.
-1. You can fill the page with any markdown you like however, HTML code will
+
+- You can fill the page with any markdown you like however, HTML code will
 be skipped.
-1. in the ```index.js``` file located in this directory, please update the list
+
+- Please do not exceed a line width of 80 characters.
+
+- in the ```index.js``` file located in this directory, please update the list
 of  place names with the name of the new place.
     - Use proper capitalisation and spaces.
 
