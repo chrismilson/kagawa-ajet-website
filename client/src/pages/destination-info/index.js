@@ -2,6 +2,7 @@ import React from 'react'
 import * as thumbs from './thumbs'
 
 export default [
+  'Ayagawa',
   'Kanonji'
   // 'Kotohira',
   // 'Manno',
