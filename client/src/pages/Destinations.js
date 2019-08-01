@@ -3,6 +3,7 @@ import Page from './Page'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import axios from 'axios'
+import * as Fa from 'react-icons/fa'
 
 import './Destinations.scss'
 
@@ -14,6 +15,19 @@ function RouterLink (props) {
       ? <Link to={props.href}>{props.children}</Link>
       : <a href={props.href}>{props.children}</a>
   )
+}
+
+function TextRenderer (props) {
+  return React.createElement(
+    'div',
+    null,
+    props.value.split(/:(\w+):/).map((text, idx) => {
+      if (idx % 2) {
+        return <Fa title={text} />
+      } else {
+        return text
+      }
+    }))
 }
 
 class Destination extends React.Component {
@@ -32,10 +46,11 @@ class Destination extends React.Component {
   getSrc () {
     axios.get(this.props.src)
       .then(res => {
-        this.setState((state, props) => ({
+        this.setState({
           md: res.data
-        }))
+        })
       })
+      .catch(err => console.log(err))
   }
 
   render () {
@@ -45,6 +60,8 @@ class Destination extends React.Component {
           source={this.state.md}
           renderers={{
             link: RouterLink
+            // The problem has not been fixed in react-markdown, so NO EMOJIS
+            // text: TextRenderer
           }}
         />
       </div>
