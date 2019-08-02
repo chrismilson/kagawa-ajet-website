@@ -82,7 +82,7 @@ to the Marugame page.
 - Now that the image will be imported by the react app, we can use the custom
     syntax for local files and in the ```marugame.md``` page we will use
     ```md
-        ![Marugame Castle](local:marugame/castle)
+        ![Marugame Castle](local:/marugame/castle)
     ```
     ***Note:*** The address for the picture uses ```castle``` - corresponding 
     to the use of 

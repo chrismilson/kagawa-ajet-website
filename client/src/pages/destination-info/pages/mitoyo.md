@@ -157,7 +157,7 @@ which are described below.
 If you want to practice Japanese, there is a free Japanese class in Takase on 
 Sundays. For the exact time and place, email the Mitoyo City International 
 Exchange Center at 
-[kokusaikouryu@city.mitoyo.kagawa.jp](mailto:kokusaikouryu@city.mitoyo.kagawa.jp?subject=Learning%20Japanese%20In%20) 
+[kokusaikouryu@city.mitoyo.kagawa.jp](mailto:kokusaikouryu@city.mitoyo.kagawa.jp?subject=Learning%20Japanese%20In%20Mitoyo) 
 or call them on 0875-56-5121. Almost all of the staff members speak English. 
 This class is a great place to meet people from all over the world.
 
@@ -166,7 +166,8 @@ customises his lessons to his students’ levels and learning styles.
 
 ## Landmarks
 
-- **Motoyama Temple**
+- **Motoyama Temple** 
+    - ![Motoyama Temple](local:/mitoyo/motoyamaTemple)
     - Perhaps the most notable landmark in Mitoyo City, It is a destination on 
     the 88 Temples Pilgrimage and features a wonderful five-storied pagoda. The 
     temple grounds were recently repaired and remodeled, so the site is now 

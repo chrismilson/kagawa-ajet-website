@@ -10,7 +10,7 @@ export default [
   'Mannō',
   'Marugame',
   'Mitoyo',
-  // 'Naoshima',
+  'Naoshima',
   // 'Sakaide',
   // 'Sanuki',
   // 'Shodoshima',

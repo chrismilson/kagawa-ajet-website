@@ -3,60 +3,11 @@ import Page from './Page'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown/with-html'
 import axios from 'axios'
-import * as Fa from 'react-icons/fa'
 
 import './Destinations.scss'
 
-import dests, { images } from './destination-info'
-
-function RouterLink (props) {
-  return (
-    props.href.match(/^\//)
-      ? <Link to={props.href}>{props.children}</Link>
-      : <a
-        href={props.href}
-        target='_blank'
-        rel='noopener noreferrer'
-      > {
-          props.children
-        }
-      </a>
-  )
-}
-
-function LocalImage (props) {
-  return (
-    props.src.match(/^local:/i)
-      ? (() => {
-        var fullPath = props.src.split(/^local:/i).pop().split('/')
-        var path = fullPath.slice(1)
-        let img = images
-        for (var i = 0; i < path.length; i++) {
-          img = img[path[i]]
-        }
-        return (
-          <img {...props}
-            alt={props.alt}
-            src={img}
-          />
-        )
-      })()
-      : <img {...props} alt={props.alt} />
-  )
-}
-
-function TextRenderer (props) {
-  return React.createElement(
-    'div',
-    null,
-    props.value.split(/:(\w+):/).map((text, idx) => {
-      if (idx % 2) {
-        return <Fa title={text} />
-      } else {
-        return text
-      }
-    }))
-}
+import dests from './destination-info'
+import renderers from './renderers'
 
 class Destination extends React.Component {
   constructor (props) {
@@ -87,11 +38,7 @@ class Destination extends React.Component {
         <ReactMarkdown
           source={this.state.md}
           escapeHtml={false}
-          renderers={{
-            link: RouterLink,
-            image: LocalImage
-            // text: TextRenderer // WAITING FOR PULL ON MAIN PACKAGE
-          }}
+          renderers={renderers}
         />
       </div>
     )
