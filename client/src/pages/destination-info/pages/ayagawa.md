@@ -63,7 +63,7 @@ bus service is not recommended for non-locals.
 - **Takoban**
     - Near Yamagoe is a small shack that sells the traditional Kagawan snack
     'Takoban'. Takoban is Kagawa's response to Okonomiyaki and Takoyaki. 
-    It has the size and shape of a large biscuit, and and incredible savoury
+    It has the size and shape of a large biscuit, and an incredible savoury
     flavour. A must try for anyone who wants to feel pure gastronomic
     satisfaction.
 
