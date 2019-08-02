@@ -1,14 +1,10 @@
 .Page {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 	margin: 5rem auto auto;
+	max-width: 50rem;
 	width: 100%;
-	
-	.row {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		max-width: 50rem;
-		margin: 0 auto;
-	}
 	
 	.col {
 		align-items: center;

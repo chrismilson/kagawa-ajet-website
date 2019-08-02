@@ -73,23 +73,21 @@ function Menu (props) {
 
 function Destinations (props) {
   return (
-    <Page>
-      <div className='Destinations row'>
-        <Route
-          exact
-          path='/destinations'
-          component={() => <Menu dests={dests} />}
-        />
-        {
-          dests.map((d, idx) => (
-            <Route
-              key={idx}
-              path={'/destinations/' + d.name.toLowerCase()}
-              render={() => <Destination src={d.md} />}
-            />
-          ))
-        }
-      </div>
+    <Page className='Destinations'>
+      <Route
+        exact
+        path='/destinations'
+        component={() => <Menu dests={dests} />}
+      />
+      {
+        dests.map((d, idx) => (
+          <Route
+            key={idx}
+            path={'/destinations/' + d.name.toLowerCase()}
+            render={() => <Destination src={d.md} />}
+          />
+        ))
+      }
     </Page>
   )
 }

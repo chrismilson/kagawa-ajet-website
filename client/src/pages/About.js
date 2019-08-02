@@ -3,14 +3,12 @@ import Page from './Page'
 
 function About (props) {
   return (
-    <Page>
-      <div className='About row'>
-        <div className='col'>
-          {}
-        </div>
-        <div className='col'>
-          {}
-        </div>
+    <Page className='About'>
+      <div className='col'>
+        {}
+      </div>
+      <div className='col'>
+        {}
       </div>
     </Page>
   )

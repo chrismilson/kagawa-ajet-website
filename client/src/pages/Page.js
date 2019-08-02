@@ -3,7 +3,7 @@ import './Page.scss'
 
 function Page (props) {
   return (
-    <div className='Page'>
+    <div className={['Page', props.className].join(' ')}>
       {props.children}
     </div>
   )

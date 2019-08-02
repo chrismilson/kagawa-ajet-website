@@ -3,12 +3,34 @@ import Page from './Page'
 
 import './Calendar.scss'
 
-function Calendar (props) {
-  return (
-    <Page>
-      <div className='Calendar' />
-    </Page>
-  )
+class MonthCalendar extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      data: null
+    }
+  }
+
+  render () {
+
+  }
+}
+
+class Calendar extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      display: MonthCalendar
+    }
+  }
+
+  render () {
+    return (
+      <Page className='Calendar' />
+    )
+  }
 }
 
 export default Calendar

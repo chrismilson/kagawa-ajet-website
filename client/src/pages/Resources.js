@@ -111,21 +111,19 @@ function Resource (props) {
 
 function Resources (props) {
   return (
-    <Page>
-      <div className='Resources row'>
-        <div className='col text'>
-          <h1>Resources</h1>
-          <p>
+    <Page className='Resources'>
+      <div className='col text'>
+        <h1>Resources</h1>
+        <p>
             There are plenty of resources for JETs out there.
             Here are just a few!
-          </p>
-          <div className='res-list'>
-            {
-              res.map((r, idx) => (
-                <Resource key={idx} res={r} />
-              ))
-            }
-          </div>
+        </p>
+        <div className='res-list'>
+          {
+            res.map((r, idx) => (
+              <Resource key={idx} res={r} />
+            ))
+          }
         </div>
       </div>
     </Page >
