@@ -1,7 +1,7 @@
 export { default as ayagawa } from './ayagawa.jpg'
 export { default as kanonji } from './kanonji.jpeg'
 export { default as kotohira } from './kotohira.jpeg'
-export { default as manno } from './manno.jpeg'
+export { default as mannō } from './mannō.jpeg'
 export { default as marugame } from './marugame.jpeg'
 export { default as mitoyo } from './mitoyo.jpeg'
 export { default as naoshima } from './naoshima.jpeg'

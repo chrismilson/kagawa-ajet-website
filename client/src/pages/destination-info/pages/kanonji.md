@@ -10,6 +10,7 @@ town, but still feel like you are in the country.
 
 ### Zenigata
 
+![The Coin](local:/kanonji/theCoin)
 Kanonji is perhaps most famous for its giant Zenigata, or sand coin, which is
 roughly the size of a soccer field and is lit by an eerie green light after
 dusk. There are several stories to how the Zenigata came to be. One of the most

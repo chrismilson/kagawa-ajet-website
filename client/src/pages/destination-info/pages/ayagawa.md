@@ -60,6 +60,13 @@ bus service is not recommended for non-locals.
     also has a conveyor belt sushi restaurant. The Ayagawa AEON is easily
     accessed via the Ayagawa Kotoden station.
 
+- **Takoban**
+    - Near Yamagoe is a small shack that sells the traditional Kagawan snack
+    'Takoban'. Takoban is Kagawa's response to Okonomiyaki and Takoyaki. 
+    It has the size and shape of a large biscuit, and and incredible savoury
+    flavour. A must try for anyone who wants to feel pure gastronomic
+    satisfaction.
+
 ## Ayagawa AEON
 
 The AEON mall (and its surrounding outlets) in Ayagawa acts as a sort of central

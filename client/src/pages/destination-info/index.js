@@ -1,19 +1,21 @@
-import React from 'react'
 import * as thumbs from './thumbs'
+
+import * as images from './images'
+export { images }
 
 export default [
   'Ayagawa',
-  'Kanonji'
-  // 'Kotohira',
-  // 'Manno',
-  // 'Marugame',
-  // 'Mitoyo',
+  'Kanonji',
+  'Kotohira',
+  'Mannō',
+  'Marugame',
+  'Mitoyo',
   // 'Naoshima',
   // 'Sakaide',
   // 'Sanuki',
   // 'Shodoshima',
   // 'Takamatsu',
-  // 'Zentsuji'
+  'Zentsuji'
 ].map(p => ({
   name: p,
   md: require('./pages/' + p.toLowerCase().replace(' ', '-') + '.md'),

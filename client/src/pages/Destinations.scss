@@ -5,17 +5,24 @@
     padding: 0 1rem;
     margin-bottom: 3rem;
     
+    a {
+      text-decoration: underline;
+    }
+
     h1, h2, h3, h4 {
       margin: 0;
-      padding: 1rem 0;
+      padding: 1rem 0 0;
+    }
+
+    img {
+      max-width: 50%;
+      float: right;
+      padding: 1rem;
+      padding-top: 0;
     }
 
     p {
       padding-left: 1rem;
-    }
-
-    a {
-      text-decoration: underline;
     }
 
     ul {
@@ -27,15 +34,18 @@
 
       li {
         padding-left: 1.3rem;
+        padding-top: 1rem;
 
         p {
           margin: 0;
           padding: 0.5rem 0;
         }
+      }
+    }
 
-        &:not(:last-child) {
-          margin-bottom: 1rem;
-        }
+    @media only screen and (max-width: 600px) {
+      img {
+        max-width: 100%;
       }
     }
   }
