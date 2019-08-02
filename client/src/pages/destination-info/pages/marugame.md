@@ -1,7 +1,15 @@
 # Marugame
+![Juu Juu kun](local:/marugame/juujuu)
 
 Marugame is located in the midwest of Kagawa. It is known for Marugame Castle,
 and a type of barbequeued chicken known as Honetsukidori.
+
+## Juu Juu kun
+
+The city mascot for Marugame is the delightful Toribugyou Honetsuki Juu Juu. 
+Juu Juu kun (as he is known) can be found at city events and sometimes wanders 
+around the city encouraging people to come and eat the fried chicken that 
+Marugame is famous for.
 
 ## Attractions
 

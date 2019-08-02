@@ -172,3 +172,30 @@ customises his lessons to his students’ levels and learning styles.
     the 88 Temples Pilgrimage and features a wonderful five-storied pagoda. The 
     temple grounds were recently repaired and remodeled, so the site is now 
     especially beautiful.
+
+- **Shippo-san**
+    - The mountain separating Nio from the rest of Mitoyo City. There is a 
+    great shrine at the top that can be reached by car and/or hiking.
+
+- **Shiundeyama**
+    - Shiundeyama is the mountain on the long peninsula extending from the west 
+    side of Mitoyo City. In addition to having amazing views of the Seto Inland 
+    Sea, it also has spectacular cherry blossoms in the spring and hydrangeas 
+    in the summer. Shiundeyama is a part of the legend of Urashimataro. The 
+    mountain’s name means “Purple Smoke Coming Out Mountain,” a reference to 
+    the purple smoke that was released from the box that Urashimataro opened.
+
+- **Awashima**
+    - Accessible by ferry from Takuma’s Suda Harbor, the island has nice, easy hikes and friendly locals. On summer nights you can swim with phosphorescent algae that glows when you move your hands in the water.
+
+- **Fudo no Taki**
+    - At the foot of Shippo-san you will find this wonderful park. It has a 
+    community center, mini putt golf, children’s playground, cherry blossom 
+    trees and -of course- a waterfall.
+
+- **Marine Wave**
+    - The Mitoyo City International Exchange Association hosts many of their 
+    events at this complex. It houses the area’s largest performance hall 
+    where you can see musical performances of various types throughout the 
+    year.
+    
