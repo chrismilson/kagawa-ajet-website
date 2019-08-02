@@ -6,13 +6,14 @@ This folder is to contain the body text for destination pages in markdown.
 
 When creating a new page please take the following into account:
 
-- Create a new markdown page.
+- The page should be kept in the ```pages``` folder in this directory.
 
-    - The title should be the name of the destination in lower case
-    and with hyphens instead of spaces.
+- The page should be written in 
+[Markdown](https://en.wikipedia.org/wiki/Markdown).
+
+    - The title should be the name of the destination in lower case and with 
+    hyphens instead of spaces.
     - Use the ```.md``` file extention.
-
-- You can fill the page with any markdown you like.
 
 - Please do not exceed a line width of 80 characters.
 
@@ -35,15 +36,14 @@ thumbnails.
 
 ### Images
 
-If you want to add an image to a destination page, please follow these steps.
+If you want to add a local image to a destination page, please follow these 
+steps.
 
-- If the image is not stored locally, there is no problem. Do it like you're 
-    used to!
+- Prefix the path with ```local:``` and store the image somewhere easy to 
+    understand in the images folder.
 
-- If the image is local, prefix the path with ```local:``` and store the image
-    somewhere easy to understand in the images folder.
-
-- The path following ```local:``` should start from the ```/images``` folder.
+- The path following ```local:``` should start as if we were in the 
+    ```/images``` folder.
 
 - When adding files to the images folder, pay attention to the ```index.js```
     files in each location.
@@ -54,10 +54,9 @@ If you want to add an image to a destination page, please follow these steps.
 ### Example
 
 Lets suppose we have a ```.jpg``` picture of Marugame Castle that we want to add 
-to the Marugame page, but haven't stored in the folder system. 
+to the Marugame page. 
 
-- First, we will make a new folder in the ```images``` folder called 
-    ```marugame```.
+- First, we will make a new folder in ```images``` called ```marugame```.
 
 - Then we will name the photo ```marugame-castle.jpg``` and put it in the folder 
     we just created.
@@ -65,14 +64,13 @@ to the Marugame page, but haven't stored in the folder system.
 - Since we made a new file, we need to update the ```index.js``` files in each 
     directory.
 
-- We will make a new ```index.js``` file in the ```marugame ``` folder 
+- We will make a new ```index.js``` file in the ```marugame``` folder 
     containing 
     ```js
-            export { default as castle } from './marugame-castle.jpg'
+        export { default as castle } from './marugame-castle.jpg'
     ```
-    Javascript names cannot have hyphens in them, so we must use a name that does 
-    not contain a hyphen **(This is the name that we will use in the 
-    Markdown)**. 
+    ***Note:*** Javascript names cannot have hyphens in them. **(This is the 
+    name that we will use in the Markdown)**. 
 
 - We also need to export the ```marugame``` folder, so for ```index.js```
     in the images folder we will add 
@@ -89,7 +87,7 @@ to the Marugame page, but haven't stored in the folder system.
     ***Note:*** The address for the picture uses ```castle``` - corresponding 
     to the use of 
     ```js
-        { default as castle }
+        export { default as castle }
     ```
     in the ```/marugame/index.js``` file.
 
