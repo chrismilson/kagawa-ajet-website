@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/chrismilson/kagawa-ajet-website#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "concurrently": "^4.1.1",
     "express": "^4.17.1",
     "react-icons": "^3.7.0"
