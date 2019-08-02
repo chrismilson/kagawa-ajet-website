@@ -1,16 +1,14 @@
-import React from 'react';
-import Page from './Page';
+import React from 'react'
+import Page from './Page'
 
-import './Calendar.scss';
+import './Calendar.scss'
 
-function Calendar(props) {
+function Calendar (props) {
   return (
     <Page>
-      <div className="Calendar">
-
-      </div>
+      <div className='Calendar' />
     </Page>
   )
 }
 
-export default Calendar;
+export default Calendar

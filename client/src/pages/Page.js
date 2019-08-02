@@ -1,12 +1,12 @@
-import React from 'react';
-import './Page.scss';
+import React from 'react'
+import './Page.scss'
 
-function Page(props) {
+function Page (props) {
   return (
-    <div className="Page">
+    <div className='Page'>
       {props.children}
     </div>
   )
 }
 
-export default Page;
+export default Page

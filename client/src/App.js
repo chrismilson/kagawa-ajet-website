@@ -1,60 +1,60 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import './App.scss';
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import './App.scss'
 
 // Components
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 // Pages
-import Home from './pages/Home';
-import About from './pages/About';
-import Resources from './pages/Resources';
-import Destinations from './pages/Destinations';
-import Calendar from './pages/Calendar';
-import Contact from './pages/Contact';
-import Default from './pages/Default';
+import Home from './pages/Home'
+import About from './pages/About'
+import Resources from './pages/Resources'
+import Destinations from './pages/Destinations'
+import Calendar from './pages/Calendar'
+import Contact from './pages/Contact'
+import Default from './pages/Default'
 
 const config = {
-  "title": "Kagawa AJET",
-  "pages": [
+  title: 'Kagawa AJET',
+  pages: [
     {
-      "name": "Home",
-      "path": "/",
-      "isExactPath": true,
-      "component": Home
+      name: 'Home',
+      path: '/',
+      isExactPath: true,
+      component: Home
     },
     {
-      "name": "About",
-      "path": "/about",
-      "component": About
+      name: 'About',
+      path: '/about',
+      component: About
     },
     {
-      "name": "Resources",
-      "path": "/resources",
-      "component": Resources
+      name: 'Resources',
+      path: '/resources',
+      component: Resources
     },
     {
-      "name": "Destinations",
-      "path": "/destinations",
-      "component": Destinations
+      name: 'Destinations',
+      path: '/destinations',
+      component: Destinations
     },
     {
-      "name": "Calendar",
-      "path": "/calendar",
-      "component": Calendar
+      name: 'Calendar',
+      path: '/calendar',
+      component: Calendar
     },
     {
-      "name": "Contact",
-      "path": "/contact",
-      "component": Contact
+      name: 'Contact',
+      path: '/contact',
+      component: Contact
     }
   ]
-};
+}
 
-function App() {
+function App () {
   return (
-    <div className="App">
+    <div className='App'>
       <BrowserRouter>
         <Header
           title={config.title}
@@ -78,7 +78,7 @@ function App() {
         <Footer />
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

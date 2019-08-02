@@ -1,12 +1,6 @@
 import React from 'react'
 import Page from './Page'
 
-const contacts = [
-  {
-    position: ''
-  }
-]
-
 function Contact (props) {
   return (
     <Page>

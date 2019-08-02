@@ -7,7 +7,7 @@ import './Header.scss'
 function MobileMenu (props) {
   const [isToggled, setToggle] = useState(false)
 
-  const toggle = () => setToggle(!isToggled)
+  var toggle = () => setToggle(!isToggled)
 
   return (
     <div onClick={toggle} className='MobileMenu'>
@@ -23,12 +23,6 @@ function MobileMenu (props) {
 }
 
 function Header (props) {
-  const [isToggled, setToggle] = useState(
-    false
-  )
-
-  const toggle = () => setToggle(!isToggled)
-
   return (
     <div className='Header'>
       <div className='title'>

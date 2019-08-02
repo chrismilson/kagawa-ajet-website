@@ -1,8 +1,8 @@
-import React from 'react';
-import Page from './Page';
-import { FaExternalLinkAlt, FaEnvelope } from 'react-icons/fa';
+import React from 'react'
+import Page from './Page'
+import { FaExternalLinkAlt, FaEnvelope } from 'react-icons/fa'
 
-import './Resources.scss';
+import './Resources.scss'
 
 var res = [
   {
@@ -24,10 +24,10 @@ var res = [
       They also have
       `,
       <a
-        href="https://www.tofugu.com/japan/jet-program-teaching-resources/"
-        target="_blank"
-        rel="noopener noreferrer"
-        key="open"
+        href='https://www.tofugu.com/japan/jet-program-teaching-resources/'
+        target='_blank'
+        rel='noopener noreferrer'
+        key='open'
       >
         resources for JETs
       </a>,
@@ -56,70 +56,70 @@ var res = [
       lessons and much more!
     `
   }
-];
+]
 
-function Resource(props) {
-  let title;
+function Resource (props) {
+  let title
   switch (props.res.type) {
     case 'link':
       title = (
-        <div className="title">
+        <div className='title'>
           <a
             href={props.res.link}
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener noreferrer'
           >
             {props.res.name} <FaExternalLinkAlt />
           </a>
         </div>
-      );
-      break;
+      )
+      break
     case 'email':
       title = (
-        <div className="title">
+        <div className='title'>
           {props.res.name + ' '}
           <a
             href={
               'mailto:' + props.res.email.address +
               '?subject=' + props.res.email.subject
             }
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener noreferrer'
           >
             <FaEnvelope />
           </a>
         </div>
-      );
-      break;
+      )
+      break
     default:
       title = (
-        <div className="title">
+        <div className='title'>
           {props.res.name}
         </div>
-      );
+      )
   }
 
   return (
-    <div className="Resource">
+    <div className='Resource'>
       {title}
-      <div className="description">
+      <div className='description'>
         {props.res.description}
       </div>
     </div>
-  );
+  )
 }
 
-function Resources(props) {
+function Resources (props) {
   return (
     <Page>
-      <div className="Resources row">
-        <div className="col text">
+      <div className='Resources row'>
+        <div className='col text'>
           <h1>Resources</h1>
           <p>
             There are plenty of resources for JETs out there.
             Here are just a few!
           </p>
-          <div className="res-list">
+          <div className='res-list'>
             {
               res.map((r, idx) => (
                 <Resource key={idx} res={r} />
@@ -132,4 +132,4 @@ function Resources(props) {
   )
 }
 
-export default Resources;
+export default Resources
