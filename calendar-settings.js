@@ -2,7 +2,6 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 const KEY = process.env.CALENDAR_PRIVATE_KEY
-console.log(process.env.CALENDAR_PRIVATE_KEY)
 const SERVICE_ACCT_ID = 'calendargetter@kagawa-ajet-website.iam.gserviceaccount.com'
 const CALENDAR_ID = {
   primary: 'gprr6e1so5bm32gjig3vf5ehk8@group.calendar.google.com'
