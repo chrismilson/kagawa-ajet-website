@@ -3,6 +3,7 @@ import moment from 'moment'
 import { Route } from 'react-router-dom'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown/with-html'
+import { Swipeable } from 'react-swipeable'
 import axios from 'axios'
 
 import Page from './Page'
@@ -154,19 +155,35 @@ class Calendar extends React.Component {
           today={this.state.today}
           setDate={this.setDate}
         />
-        {
-          (() => {
-            switch (this.state.type) {
+        <Swipeable
+          className='Swipeable'
+          onSwipedRight={() => {
+            this.setDate(this.state.current.clone().subtract(
+              1,
+              this.state.type
+            ))
+          }}
+          onSwipedLeft={() => {
+            this.setDate(this.state.current.clone().add(
+              1,
+              this.state.type
+            ))
+          }}
+        >
+          {
+            (() => {
+              switch (this.state.type) {
               // case 'day':
               //   return <DayCalendar {...this.state} />
               // case 'week':
               //   return <WeekCalendar {...this.state} />
-              default:
-              case 'month':
-                return <MonthCalendar {...this.state} />
-            }
-          })()
-        }
+                default:
+                case 'month':
+                  return <MonthCalendar {...this.state} />
+              }
+            })()
+          }
+        </Swipeable>
       </div>
     )
   }

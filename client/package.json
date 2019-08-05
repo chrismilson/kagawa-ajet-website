@@ -11,6 +11,7 @@
     "react-markdown": "^4.1.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "react-swipeable": "^5.4.0",
     "typescript": "^3.5.3"
   },
   "scripts": {

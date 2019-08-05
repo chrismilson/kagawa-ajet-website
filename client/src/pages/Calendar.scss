@@ -6,10 +6,17 @@
   margin-top: 5rem;
   height: calc(100vh - 10rem);
   user-select: none;
+  justify-content: stretch;
 
   // * {
   //   border: 1px solid black;
   // }
+
+  .Swipeable {
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: row;
+  }
 
   .MainCalendar {
     display: flex;
@@ -29,6 +36,20 @@
         justify-content: center;
         padding: 0.5rem;
       }
+
+      .short {
+        display: none;
+      }
+
+      @media only screen and (max-width: 850px) {
+        .short {
+          display: inline;
+        }
+
+        .long {
+          display: none;
+        }
+      }
     }
 
     .week {
@@ -40,23 +61,31 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        justify-content: stretch;
         margin: 0.3rem;
+
+        .date {
+          display: flex;
+          justify-content: center; 
+        }
 
         .event {
           display: flex;
+          flex-direction: column;
           text-align: center;
           align-items: center;
           justify-content: center;
           flex-basis: 100%;
-          width: 100%;
           border: 0.1rem solid lighten($color-2, 20%);
           box-shadow: 0 0 0.1rem 0.1rem lighten($color-2, 20%), 0 0 0.1rem 0.1rem lighten($color-2, 20%) inset;
         }
 
-        &.current {
-          background-color: $color-2;
-          box-shadow: 0 0 0.3rem 0.3rem $color-2;
+        @media only screen and (min-width: 850px) {
+          &.current {
+            background-color: $color-2;
+            box-shadow: 0 0 0.3rem 0.3rem $color-2;
+          }
         }
       }
     }
@@ -64,6 +93,12 @@
 
   .DatePicker {
     max-width: 17rem;
+  }
+
+  @media only screen and (max-width: 850px) {
+    .DatePicker {
+      display: none;
+    }
   }
 }
 

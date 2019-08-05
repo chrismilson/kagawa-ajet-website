@@ -20,7 +20,14 @@ function Day (props) {
           ? null
           : props.events.map((event, idx) => (
             <Link key={idx} to={'/calendar/event/' + event.id} className='event'>
-              {event.summary}
+              <strong>
+                {event.summary}
+              </strong>
+              {
+                event.start.dateTime !== undefined
+                  ? moment(event.start.dateTime).format('h:mma')
+                  : null
+              }
             </Link>
           ))
       }
@@ -81,7 +88,8 @@ function MonthCalendar (props) {
         {
           moment.weekdays().map((day, idx) => (
             <div key={idx} className='day'>
-              {day}
+              <span className='long'>{day}</span>
+              <span className='short'>{day.substr(0, 3)}</span>
             </div>
           ))
         }
