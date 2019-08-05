@@ -76,7 +76,7 @@ class EventPage extends React.Component {
                     : null
                 }
                 <h4>
-                  Starting at { start.format('h:mm') } on the
+                  Starting at { start.format('h:mma') } on the
                   { start.format(' Do') } of { start.format('MMMM, YYYY') }
                 </h4>
                 <ReactMarkdown
