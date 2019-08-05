@@ -1,3 +1,72 @@
+@import '../variables.scss';
+
 .Calendar {
   display: flex;
+  width: 100%;
+  margin-top: 5rem;
+  height: calc(100vh - 10rem);
+  user-select: none;
+
+  // * {
+  //   border: 1px solid black;
+  // }
+
+  .MainCalendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    flex: 1;
+  }
+
+  .MonthCalendar {
+    .labels {
+      display: flex;
+      justify-content: stretch;
+
+      .day {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        padding: 0.5rem;
+      }
+    }
+
+    .week {
+      flex: 1;
+      display: flex;
+      justify-content: stretch;
+
+      .day {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0.3rem;
+
+        .event {
+          display: flex;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          flex-basis: 100%;
+          width: 100%;
+        }
+
+        &.current {
+          background-color: $color-2;
+          box-shadow: 0 0 0.3rem 0.3rem $color-2;
+        }
+      }
+    }
+  }
+
+  .DatePicker {
+    max-width: 17rem;
+  }
+}
+
+.EventPage {
+  display: flex;
+  min-height: calc(100vh - 10rem);
+  margin-top: 5rem;
 }

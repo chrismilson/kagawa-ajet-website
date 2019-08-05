@@ -1,0 +1,87 @@
+import React from 'react'
+import moment from 'moment'
+import { Link } from 'react-router-dom'
+
+function Day (props) {
+  return (
+    <div
+      className={
+        [
+          'day',
+          props.className
+        ].join(' ')
+      }
+    >
+      <div className='date'>
+        {props.date.format(props.date.date() === 1 ? 'MMM D' : 'D')}
+      </div>
+      {
+        props.events === undefined
+          ? null
+          : props.events.map((event, idx) => (
+            <Link key={idx} to={'/calendar/event/' + event.id} className='event'>
+              {event.summary}
+            </Link>
+          ))
+      }
+    </div>
+  )
+}
+
+function MonthCalendar (props) {
+  var weeks = []
+  var day = props.current.clone().startOf('month')
+  day.subtract(day.day(), 'days')
+
+  for (var i = 0; i < 5 || day.isSame(props.current, 'month'); i++) {
+    var week = []
+    for (var j = 0; j < 7; j++) {
+      var events = props.events.filter(event => {
+        var start = moment(event.start.dateTime).startOf('day')
+        var end = start.clone().endOf('day')
+        var dayStart = day.clone().startOf('day')
+        var dayEnd = day.clone().endOf('day')
+
+        return dayStart.isBefore(start)
+          ? start.isBefore(dayEnd)
+          : dayStart.isBefore(end)
+      })
+      week.push(
+        <Day
+          className={
+            [
+              day.isSame(props.current, 'day') ? 'current' : '',
+              day.isSame(props.today, 'day') ? 'today' : ''
+            ].join(' ')
+          }
+          key={j}
+          date={day.clone()}
+          events={events}
+        />
+      )
+      day.add(1, 'day')
+    }
+    weeks.push(
+      <div key={i} className='week'>
+        {week}
+      </div>
+    )
+  }
+
+  return (
+    <div className='MainCalendar MonthCalendar'>
+      <div className='labels'>
+        {
+          moment.weekdays().map((day, idx) => (
+            <div key={idx} className='day'>
+              {day}
+            </div>
+          ))
+        }
+      </div>
+      {weeks}
+    </div>
+  )
+}
+
+export default MonthCalendar
