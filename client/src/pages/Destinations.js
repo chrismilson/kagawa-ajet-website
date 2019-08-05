@@ -1,6 +1,6 @@
 import React from 'react'
 import Page from './Page'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown/with-html'
 import axios from 'axios'
 
