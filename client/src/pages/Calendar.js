@@ -1,6 +1,8 @@
 import React from 'react'
 import moment from 'moment'
 import { Route } from 'react-router-dom'
+import { FaMapMarkerAlt } from 'react-icons/fa'
+import ReactMarkdown from 'react-markdown/with-html'
 import axios from 'axios'
 
 import Page from './Page'
@@ -35,8 +37,13 @@ class EventPage extends React.Component {
   }
 
   render () {
+    var start = null
     if (this.state.event !== undefined) {
-      var start = moment(this.state.event.start)
+      if (this.state.event.start.dateTime === undefined) {
+        start = moment(this.state.event.start.date)
+      } else {
+        start = moment(this.state.event.start.dateTime)
+      }
     }
 
     return (
@@ -47,20 +54,35 @@ class EventPage extends React.Component {
             : (
               <div className='event text'>
                 <h1>{this.state.event.summary}</h1>
-
-                <h3>
-                  Starting at { start.format('h:mm') } on the
-                  { start.format(' do') } of { start.format('MMMM, YYYY') }
-                </h3>
                 {
-                  this.state.event.description
-                    ? this.state.event.description.split('\n\n').map((p, idx) => (
-                      <p key={idx}>
-                        {p}
-                      </p>
-                    ))
+                  this.state.event.location
+                    ? (
+                      <a
+                        href={
+                          'https://www.google.com/maps/place/' +
+                          this.state.event.location.replace(/ /g, '+')
+                        }
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        <h3>
+                          <FaMapMarkerAlt />
+                          {
+                            ' ' + this.state.event.location.split(',')[0]
+                          }
+                        </h3>
+                      </a>
+                    )
                     : null
                 }
+                <h4>
+                  Starting at { start.format('h:mm') } on the
+                  { start.format(' Do') } of { start.format('MMMM, YYYY') }
+                </h4>
+                <ReactMarkdown
+                  source={this.state.event.description}
+                  escapeHtml={false}
+                />
               </div>
             )
         }

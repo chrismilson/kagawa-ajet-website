@@ -37,8 +37,15 @@ function MonthCalendar (props) {
     var week = []
     for (var j = 0; j < 7; j++) {
       var events = props.events.filter(event => {
-        var start = moment(event.start.dateTime).startOf('day')
-        var end = start.clone().endOf('day')
+        var start = null
+        var end = null
+        if (event.start.dateTime === undefined) {
+          start = moment(event.start.date)
+          end = moment(event.end.date)
+        } else {
+          start = moment(event.start.dateTime)
+          end = moment(event.end.dateTime)
+        }
         var dayStart = day.clone().startOf('day')
         var dayEnd = day.clone().endOf('day')
 

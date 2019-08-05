@@ -50,6 +50,8 @@
           justify-content: center;
           flex-basis: 100%;
           width: 100%;
+          border: 0.1rem solid lighten($color-2, 20%);
+          box-shadow: 0 0 0.1rem 0.1rem lighten($color-2, 20%), 0 0 0.1rem 0.1rem lighten($color-2, 20%) inset;
         }
 
         &.current {
