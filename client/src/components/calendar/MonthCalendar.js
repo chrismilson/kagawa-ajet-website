@@ -3,6 +3,8 @@ import moment from 'moment'
 import { Link } from 'react-router-dom'
 import { FaBell } from 'react-icons/fa'
 
+import './MonthCalendar.scss'
+
 function Day (props) {
   return (
     <div
@@ -20,7 +22,11 @@ function Day (props) {
         props.events === undefined
           ? null
           : props.events.map((event, idx) => (
-            <Link key={idx} to={'/calendar/event/' + event.id} className='event'>
+            <Link
+              key={idx}
+              to={'/calendar/event/' + event.id}
+              className='event'
+            >
               <div className='summary'>
 
                 <strong>

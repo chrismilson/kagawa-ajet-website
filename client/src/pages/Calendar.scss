@@ -23,9 +23,7 @@
     flex-direction: column;
     justify-content: stretch;
     flex: 1;
-  }
 
-  .MonthCalendar {
     .labels {
       display: flex;
       justify-content: stretch;
@@ -51,64 +49,10 @@
         }
       }
     }
+  }
 
-    .week {
-      flex: 1;
-      display: flex;
-      justify-content: stretch;
-      
-      .not-in-month {
-        color: darken(white, 30%);
-      }
-
-      .day {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: stretch;
-        margin: 0.3rem;
-
-        .date {
-          display: flex;
-          text-align: center;
-          justify-content: center;
-        }
-
-        .event {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding: 0.5rem;
-          border-radius: 1rem;
-          border: 0.1rem solid lighten($color-2, 20%);
-          box-shadow: 0 0 0.1rem 0.1rem lighten($color-2, 20%), 0 0 0.1rem 0.1rem lighten($color-2, 20%) inset;
-
-          .icon {
-            display: none;
-          }
-
-          @media only screen and (max-width: 850px) {
-            .icon {
-              display: inline;
-            }
-
-            .summary {
-              display: none;
-            }
-          }
-        }
-
-        @media only screen and (min-width: 850px) {
-          &.today {
-            background-color: $color-2;
-            box-shadow: 0 0 0.3rem 0.3rem $color-2;
-          }
-        }
-      }
-    }
+  .WeekCalendar {
+    display: flex;
   }
 
   .DatePicker {

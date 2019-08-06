@@ -8,8 +8,11 @@ import axios from 'axios'
 
 import Page from './Page'
 
-import DatePicker from '../components/calendar/DatePicker'
-import MonthCalendar from '../components/calendar/MonthCalendar'
+import {
+  DatePicker,
+  MonthCalendar,
+  WeekCalendar
+} from '../components/calendar'
 
 import './Calendar.scss'
 
@@ -109,6 +112,18 @@ class Calendar extends React.Component {
       this.state.current = dateSet
     }
 
+    switch (props.match.params.type) {
+      case 'day':
+        this.state.type = 'day'
+        break
+      case 'week':
+        this.state.type = 'week'
+        break
+      default:
+      case 'month':
+        this.state.type = 'month'
+    }
+
     this.getEvents = this.getEvents.bind(this)
     this.setDate = this.setDate.bind(this)
 
@@ -173,8 +188,8 @@ class Calendar extends React.Component {
               switch (this.state.type) {
               // case 'day':
               //   return <DayCalendar {...this.state} />
-              // case 'week':
-              //   return <WeekCalendar {...this.state} />
+                case 'week':
+                  return <WeekCalendar {...this.state} />
                 default:
                 case 'month':
                   return <MonthCalendar {...this.state} />
@@ -190,8 +205,8 @@ class Calendar extends React.Component {
 function CalendarPage (props) {
   return (
     <div className='CalendarPage'>
-      <Route exact path='/calendar/:date?' component={Calendar} />
-      <Route exact path='/calendar/event/:id' component={EventPage} />
+      <Route path='/calendar/event/:id' component={EventPage} />
+      <Route exact path='/calendar/:type?/:date?' component={Calendar} />
     </div>
   )
 }
