@@ -45,7 +45,8 @@ class DatePicker extends React.Component {
             className={[
               'day',
               day.isSame(this.props.today, 'day') ? 'today' : null,
-              day.isSame(this.props.current, 'day') ? 'current' : null
+              day.isSame(this.props.current, 'day') ? 'current' : null,
+              day.isSame(this.state.month, 'month') ? '' : 'not-in-month'
             ].join(' ')}
           >
             <span className='date'>{day.format('D')}</span>

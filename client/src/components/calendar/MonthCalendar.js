@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
+import { FaBell } from 'react-icons/fa'
 
 function Day (props) {
   return (
@@ -20,14 +21,19 @@ function Day (props) {
           ? null
           : props.events.map((event, idx) => (
             <Link key={idx} to={'/calendar/event/' + event.id} className='event'>
-              <strong>
-                {event.summary}
-              </strong>
-              {
-                event.start.dateTime !== undefined
-                  ? moment(event.start.dateTime).format('h:mma')
-                  : null
-              }
+              <div className='summary'>
+
+                <strong>
+                  {event.summary}
+                </strong>
+                <br />
+                {
+                  event.start.dateTime !== undefined
+                    ? moment(event.start.dateTime).format('h:mma')
+                    : null
+                }
+              </div>
+              <FaBell className='icon' />
             </Link>
           ))
       }
@@ -65,7 +71,8 @@ function MonthCalendar (props) {
           className={
             [
               day.isSame(props.current, 'day') ? 'current' : '',
-              day.isSame(props.today, 'day') ? 'today' : ''
+              day.isSame(props.today, 'day') ? 'today' : '',
+              day.isSame(props.current, 'month') ? '' : 'not-in-month'
             ].join(' ')
           }
           key={j}

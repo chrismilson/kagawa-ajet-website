@@ -111,6 +111,8 @@ class Calendar extends React.Component {
 
     this.getEvents = this.getEvents.bind(this)
     this.setDate = this.setDate.bind(this)
+
+    this.getEvents()
   }
 
   getEvents (date = this.state.current.clone()) {
@@ -141,10 +143,6 @@ class Calendar extends React.Component {
         current: date
       }
     })
-  }
-
-  componentDidMount () {
-    this.getEvents()
   }
 
   render () {

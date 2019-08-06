@@ -43,6 +43,10 @@
       padding-top: percentage(1/7)
     }
 
+    .not-in-month {
+      color: darken(white, 30%);
+    }
+
     .day, .day-label {
       flex-basis: percentage(1/7);
       display: flex;
