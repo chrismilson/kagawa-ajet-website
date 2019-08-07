@@ -21,19 +21,20 @@ This can hopefully consolidate them all into an easy to service bundle.
 - [ ] About page.
   - [ ] AJET bios.
   - [ ] JET about.
-- [ ] Get all images from the old Weebly site.
-- [ ] Destinations page.
-  - [ ] Have bios written for each area.
-    - [ ] Ayagawa
-    - [ ] Kanonji
-    - [ ] Kotohira
-    - [ ] Mannou
-    - [ ] Marugame
+- [X] Get all images from the old Weebly site.
+- [X] Destinations page.
+  - [X] Have bios written for each area.
+    - [X] Ayagawa
+    - [X] Kanonji
+    - [X] Kotohira
+    - [X] Mannou
+    - [X] Marugame
     - [ ] Naoshima
     - [ ] Sakaide
     - [ ] Sanuki
     - [ ] Shodoshima
     - [ ] Takamatsu
-    - [ ] Zentsuji
+    - [X] Zentsuji
 - [x] Resources page.
   - [x] Links to other JET resources.
+- [ ] Make line-bot
