@@ -3,6 +3,7 @@ const path = require('path')
 const CalendarApi = require('node-google-calendar')
 
 const calSettings = require('./calendar-settings')
+// const UdonBot = require('./UdonBot')
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 5000
 var calendar = new CalendarApi(calSettings)
 
 app.use(express.static(path.join(__dirname, 'client/build')))
+// app.use('/UdonBot', UdonBot)
 
 app.get('/api/calendar', (req, res) => {
   calendar.Events.list('primary', {
