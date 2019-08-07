@@ -14,7 +14,7 @@ const client = new line.Client(config)
 
 bot.use(express.static('static'))
 
-bot.post('/', line.middleare(config), (req, res) => {
+bot.post('/', line.middleware(config), (req, res) => {
   Promise
     .all(req.body.events.map(event => handle(event)))
     .then(handled => respond(client, handled))
