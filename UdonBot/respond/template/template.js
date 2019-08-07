@@ -29,7 +29,7 @@ function quietAnnounce (client, token, data) {
             contents: [
               {
                 type: 'image',
-                url: 'https://kagawa-ajet.herokuapp.com/UdonBot/images/mascot.png'
+                url: 'https://kagawa-ajet.herokuapp.com/UdonBot/images/UdonBot.png'
               },
               {
                 type: 'text',
