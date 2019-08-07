@@ -24,11 +24,11 @@ const config = {
       isExactPath: true,
       component: Home
     },
-    {
-      name: 'About',
-      path: '/about',
-      component: About
-    },
+    // {
+    //   name: 'About',
+    //   path: '/about',
+    //   component: About
+    // },
     {
       name: 'Resources',
       path: '/resources',
