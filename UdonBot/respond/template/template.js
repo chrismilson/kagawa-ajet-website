@@ -51,7 +51,7 @@ function quietAnnounce (client, token, data) {
         })))
       }
     }
-  }, true)
+  })
 }
 
 module.exports = {
