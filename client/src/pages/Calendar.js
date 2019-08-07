@@ -84,6 +84,7 @@ class EventPage extends React.Component {
                   { start.format(' Do') } of { start.format('MMMM, YYYY') }
                 </h4>
                 <ReactMarkdown
+                  className='description'
                   source={this.state.event.description}
                   escapeHtml={false}
                 />
