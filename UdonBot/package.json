@@ -1,0 +1,11 @@
+{
+  "name": "udonbot",
+  "version": "1.0.0",
+  "description": "The Official Kagawa AJET Line Bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris Milson",
+  "license": "MIT"
+}

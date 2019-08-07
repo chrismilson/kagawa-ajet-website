@@ -1,0 +1,5 @@
+{
+  "name": "set",
+  "description": "Module to send set messages - not dependant on sent information",
+  "main": "set.js"
+}

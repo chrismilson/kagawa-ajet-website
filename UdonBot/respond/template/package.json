@@ -1,0 +1,5 @@
+{
+  "name": "template",
+  "description": "Adds helper methods to produce good looking messages",
+  "main": "template.js"
+}
