@@ -41,7 +41,7 @@ function Day (props) {
               </div>
               <FaBell className='icon' />
             </Link>
-          ))
+          )).reverse()
       }
     </div>
   )
