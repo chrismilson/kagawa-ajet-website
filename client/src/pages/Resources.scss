@@ -16,18 +16,17 @@
             .description {
                 width: 100%;
                 padding: 1rem;
+
+                a {
+                    text-decoration: underline;
+                }
             }
-
         }
-    }
     
-    @media only screen and (max-width: 600px) {
-        .h-line {
-            display: block;
-        }
-
-        .Resource {
-            flex-basis: 100%
+        @media only screen and (max-width: 600px) {
+            .ResourceMemo {
+                flex-basis: 100%
+            }
         }
     }
 }
