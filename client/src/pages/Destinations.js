@@ -50,7 +50,7 @@ function MenuItem (props) {
     <Link
       className='MenuItem'
       to={
-        '/destinations/' + props.dest.name.toLowerCase()
+        '/destinations/' + props.dest.path
       }
     >
       <img src={props.dest.thumbnail} alt={props.dest.name} />
@@ -83,7 +83,7 @@ function Destinations (props) {
         dests.map((d, idx) => (
           <Route
             key={idx}
-            path={'/destinations/' + d.name.toLowerCase()}
+            path={'/destinations/' + d.path}
             render={() => <Destination src={d.md} />}
           />
         ))
