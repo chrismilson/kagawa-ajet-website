@@ -1,5 +1,9 @@
 <div align="center">
-  <a href="https://kagawa.ajet.net" target="_blank" rel="noopener noreferrer">
+  <a 
+    href="https://kagawa-ajet.herokuapp.com" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
     <img src="./udonnw.jpg">
   </a>
 </div>
