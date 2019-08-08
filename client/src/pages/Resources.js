@@ -65,6 +65,39 @@ var res = [
       and Japanese alike. They have Japanese lessons, international cooking
       lessons and much more!
     `
+  },
+  {
+    name: 'Teaching Principals by MEXT',
+    type: 'link',
+    link: 'http://www.britishcouncil.jp/sites/britishcouncil.jp/files/alt-handbook-en_0.pdf',
+    description: `
+      This book is a great read for experienced teachers. It's a little long but holds about the same information as a TEFL course.
+    `
+  },
+  {
+    name: 'Englipedia',
+    type: 'link',
+    link: 'http://www.englipedia.net/',
+    description: `
+      This is a great resource for JHS teaching. It explains all the textbooks and breaks down all the lessons into a form that is easy to understand.
+    `
+  },
+  {
+    name: 'ALTastic',
+    type: 'link',
+    link: 'http://www.altastic.com/',
+    description: `
+      A site run by some old ALTs that has some nice little online games and 
+      resources.
+    `
+  },
+  {
+    name: 'Education.com',
+    type: 'link',
+    link: 'https://www.education.com/worksheets/ela/',
+    description: `
+      So many worksheets you'll never need another one.
+    `
   }
 ]
 
