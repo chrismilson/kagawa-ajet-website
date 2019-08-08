@@ -165,11 +165,20 @@ class Calendar extends React.Component {
     if (this.props.match.params.type === 'event') return null
     return (
       <div className='Calendar'>
-        <DatePicker
-          current={this.state.current}
-          today={this.state.today}
-          setDate={this.setDate}
-        />
+        <div className='sidebar'>
+          <DatePicker
+            current={this.state.current}
+            today={this.state.today}
+            setDate={this.setDate}
+          />
+          <a
+            href='https://calendar.google.com/calendar?cid=Z3BycjZlMXNvNWJtMzJnamlnM3ZmNWVoazhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Follow the Google Calendar
+          </a>
+        </div>
         <Swipeable
           className='Swipeable'
           onSwipedRight={() => {

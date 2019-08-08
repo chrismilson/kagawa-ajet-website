@@ -8,10 +8,6 @@
   user-select: none;
   justify-content: stretch;
 
-  // * {
-  //   border: 1px solid black;
-  // }
-
   .Swipeable {
     display: flex;
     flex-basis: 100%;
@@ -55,12 +51,15 @@
     display: flex;
   }
 
-  .DatePicker {
+  .sidebar {
     max-width: 17rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   @media only screen and (max-width: 850px) {
-    .DatePicker {
+    .sidebar {
       display: none;
     }
   }
