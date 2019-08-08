@@ -162,6 +162,7 @@ class Calendar extends React.Component {
   }
 
   render () {
+    if (this.props.match.params.type === 'event') return null
     return (
       <div className='Calendar'>
         <DatePicker
