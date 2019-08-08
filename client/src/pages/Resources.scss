@@ -1,33 +1,25 @@
 .Resources {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-
     .res-list {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
 
-        h-line {
-            display: none;
+        .ResourceMemo {
+            flex-basis: 50%;
+            padding: 2rem 0;
+
+            .title {
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+
+            .description {
+                width: 100%;
+                padding: 1rem;
+            }
+
         }
-    }
-
-    .ResourceMemo {
-        flex: 1;
-        flex-basis: 50%;
-        padding: 2rem 0;
-
-        .title {
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-
-        .description {
-            width: 100%;
-            padding: 1rem;
-        }
-
     }
     
     @media only screen and (max-width: 600px) {
