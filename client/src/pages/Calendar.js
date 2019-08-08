@@ -42,8 +42,10 @@ class EventPage extends React.Component {
 
   render () {
     var start = null
+    var fullDay = false
     if (this.state.event !== undefined) {
       if (this.state.event.start.dateTime === undefined) {
+        fullDay = true
         start = moment(this.state.event.start.date)
       } else {
         start = moment(this.state.event.start.dateTime)
@@ -80,8 +82,15 @@ class EventPage extends React.Component {
                     : null
                 }
                 <h4>
-                  Starting at { start.format('h:mma') } on the
-                  { start.format(' Do') } of { start.format('MMMM, YYYY') }
+                  {
+                    fullDay
+                      ? null
+                      : start.format('h:mma') +
+                        ' to ' +
+                        moment(this.state.event.end.dateTime).format('h:mma') +
+                        ' on the '
+                  }
+                  { start.format('Do') } of { start.format('MMMM, YYYY') }
                 </h4>
                 <ReactMarkdown
                   className='description'
