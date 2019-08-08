@@ -1,0 +1,93 @@
+.NewJetResources {
+  display: flex;
+  flex: 1;
+
+  .ResourcePage {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    margin-bottom: 3rem;
+    
+    a {
+      text-decoration: underline;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      padding: 1rem 0 0;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    p {
+      padding-left: 1rem;
+
+      img {
+        padding: 1rem 0;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+
+      li {
+        padding-left: 1.3rem;
+        padding-top: 1rem;
+
+        p {
+          margin: 0;
+          padding: 0.5rem 0;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      ul {
+        li {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  .Menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+
+    .MenuItem {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; 
+      flex-basis: 25%;
+      
+      img {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .MenuItem {
+        flex-basis: percentage(1/3);
+      }
+    }
+
+    @media only screen and (max-width: 400px) {
+      .MenuItem {
+        flex-basis: 50%;
+      }
+    }
+  }
+}

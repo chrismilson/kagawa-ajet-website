@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import * as Fa from 'react-icons/fa'
 
 import { images } from './destination-info'
 
@@ -12,7 +11,8 @@ function RouterLink (props) {
         href={props.href}
         target='_blank'
         rel='noopener noreferrer'
-      > {
+      >
+        {
           props.children
         }
       </a>
@@ -38,19 +38,6 @@ function LocalImage (props) {
       })()
       : <img {...props} alt={props.alt} />
   )
-}
-
-function TextRenderer (props) {
-  return React.createElement(
-    'div',
-    null,
-    props.value.split(/:(\w+):/).map((text, idx) => {
-      if (idx % 2) {
-        return <Fa title={text} />
-      } else {
-        return text
-      }
-    }))
 }
 
 export default {

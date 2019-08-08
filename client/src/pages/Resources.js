@@ -1,16 +1,26 @@
 import React from 'react'
 import Page from './Page'
+import { Route, Link } from 'react-router-dom'
 import { FaExternalLinkAlt, FaEnvelope } from 'react-icons/fa'
 
 import './Resources.scss'
+import NewJetResources from './NewJetResources'
 
 var res = [
+  {
+    name: 'New JET Resources',
+    type: 'local',
+    path: '/resources/new-jets/',
+    description: `
+      Some resources we put together for incoming JETs.
+    `
+  },
   {
     name: 'National AJET',
     type: 'link',
     link: 'https://ajet.net/',
     description: `
-      The National AJET page is a great resource for JETs of all
+      The National AJET page is a great resource for all JETs.
     `
   },
   {
@@ -43,7 +53,7 @@ var res = [
     `,
     email: {
       address: 'mkokusaikoryu-561771@mountain.ocn.ne.jp',
-      subject: 'Marugame Japanese Lessons'
+      subject: 'Japanese Lessons in Marugame'
     }
   },
   {
@@ -58,9 +68,18 @@ var res = [
   }
 ]
 
-function Resource (props) {
+function ResourceMemo (props) {
   let title
   switch (props.res.type) {
+    case 'local':
+      title = (
+        <div className='title'>
+          <Link to={props.res.path}>
+            {props.res.name}
+          </Link>
+        </div>
+      )
+      break
     case 'link':
       title = (
         <div className='title'>
@@ -100,7 +119,7 @@ function Resource (props) {
   }
 
   return (
-    <div className='Resource'>
+    <div className='ResourceMemo'>
       {title}
       <div className='description'>
         {props.res.description}
@@ -109,23 +128,30 @@ function Resource (props) {
   )
 }
 
+function Main (props) {
+  return (
+    <div className='col text'>
+      <h1>Resources</h1>
+      <p>
+        There are plenty of resources for JETs out there.
+        Here are just a few!
+      </p>
+      <div className='res-list'>
+        {
+          res.map((r, idx) => (
+            <ResourceMemo key={idx} res={r} />
+          ))
+        }
+      </div>
+    </div>
+  )
+}
+
 function Resources (props) {
   return (
     <Page className='Resources'>
-      <div className='col text'>
-        <h1>Resources</h1>
-        <p>
-            There are plenty of resources for JETs out there.
-            Here are just a few!
-        </p>
-        <div className='res-list'>
-          {
-            res.map((r, idx) => (
-              <Resource key={idx} res={r} />
-            ))
-          }
-        </div>
-      </div>
+      <Route exact path='/resources' component={() => <Main />} />
+      <Route path='/resources/new-jets' render={NewJetResources} />
     </Page >
   )
 }
