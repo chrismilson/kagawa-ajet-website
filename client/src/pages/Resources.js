@@ -75,20 +75,11 @@ var res = [
     `
   },
   {
-    name: 'Englipedia',
+    name: 'ALTopedia',
     type: 'link',
-    link: 'http://www.englipedia.net/',
+    link: 'https://www.altopedia.org/',
     description: `
       This is a great resource for JHS teaching. It explains all the textbooks and breaks down all the lessons into a form that is easy to understand.
-    `
-  },
-  {
-    name: 'ALTastic',
-    type: 'link',
-    link: 'http://www.altastic.com/',
-    description: `
-      A site run by some old ALTs that has some nice little online games and 
-      resources.
     `
   },
   {
