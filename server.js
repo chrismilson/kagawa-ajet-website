@@ -17,6 +17,8 @@ app.get('/api/calendar', (req, res) => {
   calendar.Events.list('primary', {
     timeMin: req.query.timeMin,
     timeMax: req.query.timeMax,
+    singleEvents: true,
+    orderBy: 'startTime',
     calendarId: 'gprr6e1so5bm32gjig3vf5ehk8@group.calendar.google.com'
   })
     .then(data => res.send(data))
