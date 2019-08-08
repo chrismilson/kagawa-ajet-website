@@ -10,19 +10,23 @@ const config = {
 }
 
 const bot = express.Router()
-const client = new line.Client(config)
+try {
+  const client = new line.Client(config)
 
-bot.use(express.static('static'))
+  bot.use(express.static('static'))
 
-bot.post('/', line.middleware(config), (req, res) => {
-  Promise
-    .all(req.body.events.map(event => handle(event)))
-    .then(handled => respond(client, handled))
-    .then(response => res.json(response))
-    .catch(err => {
-      console.err(err)
-      res.status(500).end()
-    })
-})
+  bot.post('/', line.middleware(config), (req, res) => {
+    Promise
+      .all(req.body.events.map(event => handle(event)))
+      .then(handled => respond(client, handled))
+      .then(response => res.json(response))
+      .catch(err => {
+        console.err(err)
+        res.status(500).end()
+      })
+  })
+} catch (err) {
+  console.log('Bot failed')
+}
 
 module.exports = bot
