@@ -65,7 +65,7 @@ class EventPage extends React.Component {
                     ? (
                       <a
                         href={
-                          'https://www.google.com/maps/place/' +
+                          'https://www.google.com/maps/search/?api=1&query=' +
                           this.state.event.location.replace(/ /g, '+')
                         }
                         target='_blank'
