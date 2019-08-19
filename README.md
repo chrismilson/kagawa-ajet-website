@@ -21,10 +21,9 @@ This can hopefully consolidate them all into an easy to service bundle.
 
 ## To Do List
 
-- [ ] Decide on an Icon.
-- [ ] About page.
-  - [ ] AJET bios.
-  - [ ] JET about.
+- [X] Decide on an Icon.
+  - [ ] Get permission to use the Kagawa AJET Mascot from the designer.
+- [ ] Make the calendar on mobile a list of events for readability.
 - [X] Get all images from the old Weebly site.
 - [X] Destinations page.
   - [X] Have bios written for each area.
