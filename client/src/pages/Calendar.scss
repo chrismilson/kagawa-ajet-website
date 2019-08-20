@@ -8,12 +8,6 @@
   user-select: none;
   justify-content: stretch;
 
-  .Swipeable {
-    display: flex;
-    flex-basis: 100%;
-    flex-direction: row;
-  }
-
   .MainCalendar {
     display: flex;
     flex-direction: column;
@@ -34,21 +28,33 @@
       .short {
         display: none;
       }
-
-      @media only screen and (max-width: 850px) {
-        .short {
-          display: inline;
-        }
-
-        .long {
-          display: none;
-        }
-      }
     }
   }
 
-  .WeekCalendar {
-    display: flex;
+  .EventCalendar {
+    display: none;
+    width: 100%;
+
+    .picker {
+      background-color: $color-2;
+    }
+
+    .events {
+      .Event {
+        padding: 2rem;
+  
+        &:not(:first-child) {
+          border-top: 1px solid darken($color-2, 20%);
+        }
+  
+        .description {
+          padding: 0 1rem;
+          a {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
 
   .sidebar {
@@ -59,6 +65,14 @@
   }
 
   @media only screen and (max-width: 850px) {
+    .MainCalendar {
+      display: none;
+    }
+
+    .EventCalendar {
+      display: flex;
+    }
+
     .sidebar {
       display: none;
     }

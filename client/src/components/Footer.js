@@ -19,6 +19,15 @@ function Footer () {
           </a>
         </p>
       </div>
+      <div className='google-calendar-link'>
+        <a
+          href='https://calendar.google.com/calendar?cid=Z3BycjZlMXNvNWJtMzJnamlnM3ZmNWVoazhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+            Follow the Google Calendar
+        </a>
+      </div>
     </div>
   )
 };

@@ -1,0 +1,43 @@
+.EventCalendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: calc(100vh - 10rem);
+
+  .picker {
+    width: 100%;
+    display: flex;
+    position: sticky;
+    top: 5rem;
+    height: 5rem;
+
+    .date {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .previous, .next {
+      flex: 0;
+      flex-basis: percentage(1/7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
+  .events {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .Event {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+}

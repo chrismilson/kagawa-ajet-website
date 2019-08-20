@@ -3,7 +3,6 @@ import moment from 'moment'
 import { Route } from 'react-router-dom'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown/with-html'
-import { Swipeable } from 'react-swipeable'
 import axios from 'axios'
 
 import Page from './Page'
@@ -11,7 +10,7 @@ import Page from './Page'
 import {
   DatePicker,
   MonthCalendar,
-  WeekCalendar
+  EventCalendar
 } from '../components/calendar'
 
 import './Calendar.scss'
@@ -123,12 +122,12 @@ class Calendar extends React.Component {
     }
 
     switch (props.match.params.type) {
-      case 'day':
-        this.state.type = 'day'
-        break
-      case 'week':
-        this.state.type = 'week'
-        break
+      // case 'day':
+      //   this.state.type = 'day'
+      //   break
+      // case 'week':
+      //   this.state.type = 'week'
+      //   break
       default:
       case 'month':
         this.state.type = 'month'
@@ -180,43 +179,24 @@ class Calendar extends React.Component {
             today={this.state.today}
             setDate={this.setDate}
           />
-          <a
-            href='https://calendar.google.com/calendar?cid=Z3BycjZlMXNvNWJtMzJnamlnM3ZmNWVoazhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Follow the Google Calendar
-          </a>
         </div>
-        <Swipeable
-          className='Swipeable'
-          onSwipedRight={() => {
-            this.setDate(this.state.current.clone().subtract(
-              1,
-              this.state.type
-            ))
-          }}
-          onSwipedLeft={() => {
-            this.setDate(this.state.current.clone().add(
-              1,
-              this.state.type
-            ))
-          }}
-        >
-          {
-            (() => {
-              switch (this.state.type) {
+        {
+          (() => {
+            switch (this.state.type) {
               // case 'day':
               //   return <DayCalendar {...this.state} />
-                case 'week':
-                  return <WeekCalendar {...this.state} />
-                default:
-                case 'month':
-                  return <MonthCalendar {...this.state} />
-              }
-            })()
-          }
-        </Swipeable>
+              // case 'week':
+              //   return <WeekCalendar {...this.state} />
+              default:
+              case 'month':
+                return <MonthCalendar {...this.state} />
+            }
+          })()
+        }
+        <EventCalendar
+          {...this.state}
+          setDate={this.setDate}
+        />
       </div>
     )
   }
@@ -226,7 +206,7 @@ function CalendarPage (props) {
   return (
     <div className='CalendarPage'>
       <Route path='/calendar/event/:id' component={EventPage} />
-      <Route exact path='/calendar/:type?/:date?' component={Calendar} />
+      <Route exact path='/calendar/:date?/:type?' component={Calendar} />
     </div>
   )
 }
