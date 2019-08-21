@@ -8,7 +8,6 @@ import Footer from './components/Footer'
 
 // Pages
 import Home from './pages/Home'
-import About from './pages/About'
 import Resources from './pages/Resources'
 import Destinations from './pages/Destinations'
 import Calendar from './pages/Calendar'
@@ -25,11 +24,6 @@ const config = {
       isExactPath: true,
       component: Home
     },
-    // {
-    //   name: 'About',
-    //   path: '/about',
-    //   component: About
-    // },
     {
       name: 'Resources',
       path: '/resources',
