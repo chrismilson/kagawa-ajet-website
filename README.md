@@ -4,7 +4,7 @@
     target="_blank" 
     rel="noopener noreferrer"
   >
-    <img src="./udonnw.jpg">
+    <img src="./mascot.png">
   </a>
 </div>
 
@@ -16,39 +16,42 @@ There are already Several websites for Kagawa AJET;
 
 - [Tumblr](https://ajetkagawa.tumblr.com/)
 - [Weebly page](https://kagawaajet.weebly.com/)
+- [Wikidot](http://kagawa.wikidot.com/)
 
 This can hopefully consolidate them all into an easy to service bundle.
 
 ## To Do List
 
-- [ ] Get permission to use the Kagawa AJET Mascot from the designer
 - [ ] Destinations pages
   - [ ] Have bios written for each area
-    - [ ] Ayagawa
-      - [X] Content
-      - [ ] Images
-    - [ ] Kanonji
-      - [X] Content
-      - [ ] Images
-    - [ ] Kotohira
-      - [X] Content
-      - [ ] Images
-    - [ ] Mannou
-      - [X] Content
-      - [ ] Images
+    - [X] Ayagawa
+    - [X] Kanonji
+    - [X] Kotohira
+    - [X] Mannou
     - [X] Marugame
-    - [ ] Naoshima
-      - [X] Content
-      - [ ] Images
+    - [X] Naoshima
     - [ ] Sakaide
     - [ ] Sanuki
     - [ ] Shodoshima
     - [ ] Takamatsu
     - [X] Zentsuji
+  - [ ] Populate each area page with images
+    - [ ] Ayagawa
+    - [ ] Kanonji
+    - [ ] Kotohira
+    - [ ] Mannou
+    - [ ] Marugame
+    - [ ] Naoshima
+    - [ ] Sakaide
+    - [ ] Sanuki
+    - [ ] Shodoshima
+    - [ ] Takamatsu
+    - [ ] Zentsuji
 - [ ] Make line-bot
 
 ## Done list
 
+- [X] Get permission to use the Kagawa AJET Mascot from the designer
 - [X] Decide on an Icon
 - [X] Make the calendar on mobile a list of events for readability
 - [X] Get all images from the old Weebly site

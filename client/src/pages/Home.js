@@ -1,7 +1,7 @@
 import React from 'react'
 import Page from './Page'
 import './Home.scss'
-import udonnw from './public/images/udonnwkama.png'
+// import mascot from './public/images/mascot.png'
 
 const content = [
   'Welcome to the Kagawa AJET website! This site is for new, existing and alumni JETs, as well as anybody else who might want to find out more about udon-ken.',
@@ -14,8 +14,8 @@ const content = [
 function Home (props) {
   return (
     <Page className='Home'>
-      <div id='udonnw' className='col'>
-        <img src={udonnw} alt='Udon Brain' />
+      <div className='col mascot'>
+        {/* <img src={mascot} alt="Kagawa AJET"/> */}
       </div>
       <div className='col text'>
         {
