@@ -1,23 +1,24 @@
 import React from 'react'
 import './Footer.scss'
+import { Link } from 'react-router-dom'
 
 function Footer () {
   return (
     <div className='Footer'>
       <div className='copyright'>
-        <p>
-          {'\xa9 '}
-          <a
-            href={
-              'mailto:udonkenAJET@shlappas.com' +
+        {/* <a
+          href={
+            'mailto:udonkenAJET@shlappas.com' +
               '?subject=Kagawa%20AJET%20Website'
-            }
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Chris Milson 2019
-          </a>
-        </p>
+          }
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+
+        </a> */}
+        <Link to='/license'>
+          {'\xa9'} Chris Milson 2019
+        </Link>
       </div>
       <div className='google-calendar-link'>
         <a
