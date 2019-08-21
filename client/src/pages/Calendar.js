@@ -113,6 +113,7 @@ class Calendar extends React.Component {
       today: moment().startOf('day'),
       current: moment().startOf('day'),
       type: 'month',
+      fetched: false,
       events: []
     }
 
@@ -135,13 +136,12 @@ class Calendar extends React.Component {
 
     this.getEvents = this.getEvents.bind(this)
     this.setDate = this.setDate.bind(this)
-
-    this.getEvents()
   }
 
   getEvents (date = this.state.current.clone()) {
     var start = date.clone().startOf(this.state.type)
     var end = date.clone().endOf(this.state.type)
+    this.setState(() => ({ fetched: false }))
 
     if (this.state.type === 'month') {
       start.subtract(start.day())
@@ -154,7 +154,9 @@ class Calendar extends React.Component {
         timeMax: end.toISOString()
       }
     })
-      .then(res => this.setState(() => ({ events: res.data })))
+      .then(res => {
+        this.setState(() => ({ events: res.data, fetched: true }))
+      })
       .catch(err => console.log(err))
   }
 
@@ -167,6 +169,10 @@ class Calendar extends React.Component {
         current: date
       }
     })
+  }
+
+  componentDidMount () {
+    this.getEvents()
   }
 
   render () {

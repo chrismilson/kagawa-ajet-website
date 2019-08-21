@@ -4,6 +4,7 @@ import moment from 'moment'
 import { FaMapMarkerAlt, FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 import renderers from '../../pages/renderers'
+import Loading from '../Loading'
 
 import './EventCalendar.scss'
 
@@ -78,7 +79,6 @@ class EventCalendar extends React.Component {
   }
 
   componentDidUpdate () {
-    console.log('boo')
     if (this.state.target.current) {
       window.scroll(0, this.state.target.current.offsetTop - 160)
     }
@@ -110,29 +110,46 @@ class EventCalendar extends React.Component {
             <FaAngleRight />
           </div>
         </div>
-        <div className='events'>
-
-          {
-            this.props.events.map((e, idx) => {
-              var ref = null
-              var start = moment(e.start.dateTime
-                ? e.start.dateTime
-                : e.start.date
-              )
-              if (!found) {
-                if (start.isAfter(this.props.current) ||
-                idx === this.props.events.length - 1) {
-                  ref = this.state.target
-                  found = true
-                  console.log('shmoo', idx)
-                }
-              }
-              return (
-                <Event key={idx} ref={ref} event={e} />
-              )
-            })
-          }
-        </div>
+        {
+          this.props.fetched
+            ? (
+              this.props.events.length === 0
+                ? (
+                  <div className='message empty'>
+                    No Scheduled Events
+                    {
+                      this.props.current.isBefore(this.props.today)
+                        ? null
+                        : '.. Yet'
+                    }
+                  </div>
+                )
+                : (
+                  <div className='events'>
+                    {
+                      this.props.events.map((e, idx) => {
+                        var ref = null
+                        var start = moment(e.start.dateTime
+                          ? e.start.dateTime
+                          : e.start.date
+                        )
+                        if (!found) {
+                          if (start.isAfter(this.props.current) ||
+                          idx === this.props.events.length - 1) {
+                            ref = this.state.target
+                            found = true
+                          }
+                        }
+                        return (
+                          <Event key={idx} ref={ref} event={e} />
+                        )
+                      })
+                    }
+                  </div>
+                )
+            )
+            : <Loading className='message' />
+        }
       </div>
     )
   }
