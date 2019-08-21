@@ -1,7 +1,8 @@
 {
-	"short_name": "AJET",
+	"manifest_version": 2,
 	"name": "Kagawa AJET",
-	"background_color": "#659DBD",
+	"short_name": "Kagawa AJET",
+	"background_color": "#326A8A",
 	"start_url": "/",
 	"display": "standalone"
 }
