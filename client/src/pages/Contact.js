@@ -1,13 +1,13 @@
 import React from 'react'
 import Page from './Page'
-import { FaLine } from 'react-icons/fa'
+import { FaLine, FaEnvelope } from 'react-icons/fa'
 
 function Contact (props) {
   return (
     <Page className='Contact'>
       <div className='col text'>
         <div className='email'>
-          <h1>Email</h1>
+          <h1><FaEnvelope /> Email</h1>
           <a
             href='mailto:udonkenajet@gmail.com'
             target='_blank'
