@@ -18,36 +18,22 @@
       max-width: 100%;
     }
 
-    p {
-      padding-left: 1rem;
-
-      img {
-        padding: 1rem 0;
-      }
-    }
-
     ul {
       display: flex;
       flex-direction: column;
       padding: 0;
       margin: 0;
       list-style-type: none;
-
-      li {
-        padding-left: 1.3rem;
-        padding-top: 1rem;
-
-        p {
-          margin: 0;
-          padding: 0.5rem 0;
-        }
-      }
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (min-width: 600px) {
+      img {
+        max-width: 50%;
+      }
+
       ul {
         li {
-          padding-left: 0;
+          padding-left: 1.3rem;
         }
       }
     }
