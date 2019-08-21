@@ -85,7 +85,7 @@ class EventCalendar extends React.Component {
   }
 
   render () {
-    var found = false
+    var found = !this.props.current.isSame(this.props.now, 'month')
 
     return (
       <div className='EventCalendar'>
@@ -127,14 +127,19 @@ class EventCalendar extends React.Component {
                 : (
                   <div className='events'>
                     {
-                      this.props.events.map((e, idx) => {
+                      this.props.events.filter(e =>
+                        moment(e.start.dateTime
+                          ? e.start.dateTime
+                          : e.start.date
+                        ).isSame(this.props.current, 'month')
+                      ).map((e, idx) => {
                         var ref = null
                         var start = moment(e.start.dateTime
                           ? e.start.dateTime
                           : e.start.date
                         )
                         if (!found) {
-                          if (start.isAfter(this.props.current) ||
+                          if (start.isAfter(this.props.today) ||
                           idx === this.props.events.length - 1) {
                             ref = this.state.target
                             found = true
