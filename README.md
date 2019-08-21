@@ -21,12 +21,9 @@ This can hopefully consolidate them all into an easy to service bundle.
 
 ## To Do List
 
-- [X] Decide on an Icon.
-  - [ ] Get permission to use the Kagawa AJET Mascot from the designer.
-- [ ] Make the calendar on mobile a list of events for readability.
-- [X] Get all images from the old Weebly site.
-- [X] Destinations page.
-  - [X] Have bios written for each area.
+- [ ] Get permission to use the Kagawa AJET Mascot from the designer
+- [ ] Destinations pages
+  - [ ] Have bios written for each area
     - [ ] Ayagawa
       - [X] Content
       - [ ] Images
@@ -48,6 +45,13 @@ This can hopefully consolidate them all into an easy to service bundle.
     - [ ] Shodoshima
     - [ ] Takamatsu
     - [X] Zentsuji
-- [x] Resources page.
-  - [x] Links to other JET resources.
 - [ ] Make line-bot
+
+## Done list
+
+- [X] Decide on an Icon
+- [X] Make the calendar on mobile a list of events for readability
+- [X] Get all images from the old Weebly site
+- [X] Resources page
+  - [X] Links to other JET resources
+- [X] License page
