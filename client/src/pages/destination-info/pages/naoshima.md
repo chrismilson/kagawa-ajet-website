@@ -9,18 +9,23 @@ school English curricula.
 These five destinations are a must see on Naoshima.
 
 ![Chichu Art Museum](local:/naoshima/chichu)
+
 **[Chichu Art Museum](http://benesse-artsite.jp/en/art/chichu.html)**
 
 ![Benesse House](local:/naoshima/benesseHouse)
+
 **[Benesse House](http://benesse-artsite.jp/en/art/benessehouse-museum.html)**
 
 ![Liberty of Statue](local:/naoshima/libertyOfStatue)
+
 **[Art House Project](http://benesse-artsite.jp/en/art/arthouse.html)**
 
 ![I Love 'Yu'](local:/naoshima/iLoveYu)
+
 **[I Love 'Yu'](http://benesse-artsite.jp/en/art/naoshimasento.html)**
 
 ![Lee Urfan Museum](local:/naoshima/leeUrfanMuseum)
+
 **[Lee Ufan Museum](http://benesse-artsite.jp/en/art/lee-ufan.html)**
 
 ### Food
