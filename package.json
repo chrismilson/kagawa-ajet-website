@@ -4,6 +4,8 @@
   "description": "This is a website for the Kagawa AJET - information for aspiring, current, and past JETs.",
   "main": "index.js",
   "scripts": {
+    "client": "cd ./client && npm start",
+    "concurrently": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node server.js",
     "server": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
