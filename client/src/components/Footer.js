@@ -17,7 +17,7 @@ function Footer () {
 
         </a> */}
         <Link to='/license'>
-          {'\xa9'} Chris Milson 2019
+          {'\xa9'} 2019 Kagawa AJET
         </Link>
       </div>
       <div className='google-calendar-link'>

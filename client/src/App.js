@@ -14,6 +14,7 @@ import Destinations from './pages/Destinations'
 import Calendar from './pages/Calendar'
 import Contact from './pages/Contact'
 import Default from './pages/Default'
+import License from './pages/License'
 
 const config = {
   title: 'Kagawa AJET',
@@ -48,6 +49,12 @@ const config = {
       name: 'Contact',
       path: '/contact',
       component: Contact
+    },
+    {
+      name: 'License',
+      path: '/license',
+      component: License,
+      hidden: true
     }
   ]
 }
@@ -58,7 +65,7 @@ function App () {
       <BrowserRouter>
         <Header
           title={config.title}
-          pages={config.pages}
+          pages={config.pages.filter(e => !e.hidden)}
         />
         <Switch>
           {
