@@ -27,12 +27,22 @@ This can hopefully consolidate them all into an easy to service bundle.
 - [X] Get all images from the old Weebly site.
 - [X] Destinations page.
   - [X] Have bios written for each area.
-    - [X] Ayagawa
-    - [X] Kanonji
-    - [X] Kotohira
-    - [X] Mannou
+    - [ ] Ayagawa
+      - [X] Content
+      - [ ] Images
+    - [ ] Kanonji
+      - [X] Content
+      - [ ] Images
+    - [ ] Kotohira
+      - [X] Content
+      - [ ] Images
+    - [ ] Mannou
+      - [X] Content
+      - [ ] Images
     - [X] Marugame
     - [ ] Naoshima
+      - [X] Content
+      - [ ] Images
     - [ ] Sakaide
     - [ ] Sanuki
     - [ ] Shodoshima
