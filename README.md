@@ -4,7 +4,7 @@
     target="_blank" 
     rel="noopener noreferrer"
   >
-    <img src="./mascot.png">
+    <img width="300" height="300" src="./client/public/UdonHenro.png">
   </a>
 </div>
 

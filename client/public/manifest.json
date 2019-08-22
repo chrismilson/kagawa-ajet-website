@@ -1,7 +1,18 @@
 {
-	"manifest_version": 2,
 	"name": "Kagawa AJET",
 	"short_name": "Kagawa AJET",
+	"icons": [
+		{
+			"src": "icon/UdonHenro-192.png",
+			"type": "image/png",
+			"size": "192x192"
+		},
+		{
+			"src": "icon/UdonHenro-512.png",
+			"type": "image/png",
+			"size": "512x512"
+		}
+	],
 	"background_color": "#326A8A",
 	"start_url": "/",
 	"display": "standalone"
