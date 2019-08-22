@@ -85,7 +85,8 @@ class EventCalendar extends React.Component {
   }
 
   render () {
-    var found = !this.props.current.isSame(this.props.now, 'month')
+    var found = false
+    var top = !this.props.current.isSame(this.props.now, 'month')
 
     return (
       <div className='EventCalendar'>
@@ -140,7 +141,8 @@ class EventCalendar extends React.Component {
                         )
                         if (!found) {
                           if (start.isAfter(this.props.today) ||
-                          idx === this.props.events.length - 1) {
+                          idx === this.props.events.length - 1 ||
+                          top) {
                             ref = this.state.target
                             found = true
                           }
