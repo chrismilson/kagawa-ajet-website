@@ -3,12 +3,12 @@
 	"short_name": "Kagawa AJET",
 	"icons": [
 		{
-			"src": "icon/UdonHenro-192.png",
+			"src": "/icon/UdonHenro-192.png",
 			"type": "image/png",
 			"size": "192x192"
 		},
 		{
-			"src": "icon/UdonHenro-512.png",
+			"src": "/icon/UdonHenro-512.png",
 			"type": "image/png",
 			"size": "512x512"
 		}
