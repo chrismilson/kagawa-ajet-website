@@ -22,6 +22,10 @@ This can hopefully consolidate them all into an easy to service bundle.
 
 ## To Do List
 
+- [ ] New Jet Materials
+  - [ ] Electronics in Japan
+  - [ ] Getting a SIM card
+  - [X] What to bring
 - [ ] Destinations pages
   - [ ] Have bios written for each area
     - [X] Ayagawa
