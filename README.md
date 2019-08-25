@@ -4,7 +4,7 @@
     target="_blank" 
     rel="noopener noreferrer"
   >
-    <img width="300" height="300" src="./client/public/UdonHenro.png">
+    <img width="300" height="300" src="UdonHenro.png">
   </a>
 </div>
 
@@ -22,35 +22,29 @@ This can hopefully consolidate them all into an easy to service bundle.
 
 ## To Do List
 
-- [ ] New Jet Materials
-  - [ ] Electronics in Japan
-  - [ ] Getting a SIM card
-  - [X] What to bring
-- [ ] Destinations pages
-  - [ ] Have bios written for each area
-    - [X] Ayagawa
-    - [X] Kanonji
-    - [X] Kotohira
-    - [X] Mannou
-    - [X] Marugame
-    - [X] Naoshima
+- [ ] Login with Google Account.
+- [ ] Push notifications
+- [ ] Get started page for new peopls
+- New Jet Materials
+  - Content
+    - [ ] Electronics in Japan
+    - [ ] Getting a SIM card
+  - Images
+    - [ ] What to bring
+- Destination pages
+  - Content
     - [ ] Sakaide
     - [ ] Sanuki
     - [ ] Shodoshima
     - [ ] Takamatsu
-    - [X] Zentsuji
-  - [ ] Populate each area page with images
-    - [ ] Ayagawa
-    - [ ] Kanonji
-    - [ ] Kotohira
-    - [ ] Mannou
-    - [ ] Marugame
-    - [ ] Naoshima
-    - [ ] Sakaide
-    - [ ] Sanuki
-    - [ ] Shodoshima
-    - [ ] Takamatsu
-    - [ ] Zentsuji
+  - Images
+    - [ ] Ayagawa ***none***
+    - [ ] Kanonji ***one***
+    - [ ] Kotohira ***none***
+    - [ ] Mannou ***none***
+    - [ ] Marugame ***need more***
+    - [ ] Naoshima ***get a tanuki picture***
+    - [ ] Zentsuji ***none***
 - [ ] Make line-bot
 
 ## Done list
@@ -62,3 +56,15 @@ This can hopefully consolidate them all into an easy to service bundle.
 - [X] Resources page
   - [X] Links to other JET resources
 - [X] License page
+- New Jet Materials
+  - Content
+    - [X] What to bring
+- Destination pages
+  - Content
+    - [X] Ayagawa
+    - [X] Kanonji
+    - [X] Kotohira
+    - [X] Mannou
+    - [X] Marugame
+    - [X] Naoshima
+    - [X] Zentsuji
