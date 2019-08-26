@@ -1,4 +1,4 @@
-# Mannō
+# Mannō - 満濃
 
 Mannō is about an hour by train from Kagawa's capital city Takamatsu. It is
 right next to the very famous shrine Konpirasan, in

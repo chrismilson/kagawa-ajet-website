@@ -1,6 +1,6 @@
-# Ayagawa
+# Ayagawa - 綾川
 
-Located south-southeast of Takamatsu, Ayagawa is a semi-rural town host to
+Located south-southeast of [Takamatsu](/takamatsu), Ayagawa is a semi-rural town host to
 roughly 25,000 people. The town offers little in the way of sightseeing, but
 plenty of famous udon shops populate the landscape. The northern part of Ayagawa
 (formerly known as Ryōnan) is more densely populated and contains the more urban

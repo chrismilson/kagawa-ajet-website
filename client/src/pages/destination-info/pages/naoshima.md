@@ -1,4 +1,4 @@
-# Naoshima
+# Naoshima - 直島
 
 Naoshima island gazes across the inland sea from its ivory hills of 
 contemporary art installations, tasteful cafes and pretty decent elementary 

@@ -1,4 +1,4 @@
-# Mitoyo City
+# Mitoyo - 三豊
 
 Mitoyo City is located on the west side of Kagawa. It is a collection of seven 
 townships: Mino, Nio, Saita, Takase, Takuma, Toyonaka and Yamamoto. Although 

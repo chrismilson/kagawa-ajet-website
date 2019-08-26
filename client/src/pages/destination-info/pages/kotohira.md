@@ -1,4 +1,4 @@
-# Kotohira
+# Kotohira - 琴平
 
 Kotohira is in the Nakatado District of Kagawa, in the southwest part of the 
 prefecture. The town is served by both the Kotohira Railway, the main line

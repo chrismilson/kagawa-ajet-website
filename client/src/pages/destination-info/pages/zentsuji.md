@@ -1,4 +1,4 @@
-# Zentsuji
+# Zentsuji - 善通寺
 
 Zentsuji is located in central Kagawa. It is most famous for Zentsuji Temple.
 This temple is the birthplace of Kukai, the Japanese monk credited with bringing

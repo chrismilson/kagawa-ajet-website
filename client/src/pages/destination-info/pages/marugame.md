@@ -1,4 +1,4 @@
-# Marugame
+# Marugame - 丸亀
 ![Juu Juu kun](local:/marugame/juujuu)
 
 Marugame is located in the midwest of Kagawa. It is known for Marugame Castle,

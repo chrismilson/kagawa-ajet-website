@@ -1,4 +1,4 @@
-# Kanonji
+# Kanonji - 観音寺
 
 South-west of Marugame, Kanonji has a lot to offer, especially for those with
 an affinity for nature. The city is surrounded by rice paddies, and a temple or
