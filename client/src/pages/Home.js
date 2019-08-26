@@ -1,7 +1,7 @@
 import React from 'react'
 import Page from './Page'
 import './Home.scss'
-import mascot from './public/images/UdonHenro.png'
+import mascot from './UdonHenro.png'
 
 const content = [
   'Welcome to the Kagawa AJET website! This site is for new, existing and alumni JETs, as well as anybody else who might want to find out more about udon-ken.',
