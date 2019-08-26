@@ -90,7 +90,6 @@ function ResourceMemo (props) {
     case 'email':
       title = (
         <div className='title'>
-          {props.res.name + ' '}
           <a
             href={
               'mailto:' + props.res.email.address +
@@ -99,6 +98,7 @@ function ResourceMemo (props) {
             target='_blank'
             rel='noopener noreferrer'
           >
+            {props.res.name + ' '}
             <FaEnvelope />
           </a>
         </div>
