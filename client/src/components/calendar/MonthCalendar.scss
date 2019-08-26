@@ -1,59 +1,86 @@
 @import '../../variables.scss';
 
 .MonthCalendar {
-  .week {
-    flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+
+  .previous, .next {
+    flex: 0;
+    min-width: 2rem;
     display: flex;
-    justify-content: stretch;
-    
-    .not-in-month {
-      color: darken(white, 30%);
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+
+    &:hover {
+      background-color: $color-2;
+      color: black;
     }
+  }
 
-    .day {
-      flex: 1;
+  .main {
+    max-width: calc(100% - 2rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    flex: 1;
+    padding-bottom: 1rem;
+
+    .labels {
       display: flex;
-      flex-direction: column;
-      align-items: stretch;
       justify-content: stretch;
-      margin: 0.3rem;
 
-      .date {
-        display: flex;
-        text-align: center;
-        justify-content: center;
-      }
-
-      .event {
+      .day {
         flex: 1;
         display: flex;
-        flex-direction: column;
-        align-items: center;
         justify-content: center;
-        padding: 0.5rem;
-        border-radius: 1rem;
-        border: 0.1rem solid lighten($color-2, 20%);
-        box-shadow: 0 0 0.1rem 0.1rem lighten($color-2, 20%), 0 0 0.1rem 0.1rem lighten($color-2, 20%) inset;
-
-        .icon {
-          display: none;
-        }
-
-        @media only screen and (max-width: 850px) {
-          .icon {
-            display: inline;
-          }
-
-          .summary {
-            display: none;
-          }
-        }
+        padding: 0.5rem 0;
       }
 
-      @media only screen and (min-width: 850px) {
-        &.today {
-          background-color: $color-2;
-          box-shadow: 0 0 0.3rem 0.3rem $color-2;
+      .short {
+        display: none;
+      }
+    }
+
+    .week {
+      flex: 1;
+      display: flex;
+      justify-content: space-around;
+      
+      .not-in-month {
+        color: darken(white, 30%);
+      }
+
+      .today {
+        background-color: $color-2;
+        box-shadow: 0 0 0.3rem 0.3rem $color-2;
+      }
+
+      .day {
+        flex-basis: percentage(1/8);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: stretch;
+        padding: 0.3rem 0;
+
+        .date {
+          display: flex;
+          text-align: center;
+          justify-content: center;
+        }
+
+        .event {
+          border-radius: 1rem;
+          border: 0.1rem solid lighten($color-2, 20%);
+
+          .summary {
+            padding: 0.3rem;
+            white-space: nowrap;
+            overflow: hidden;
+          }
         }
       }
     }

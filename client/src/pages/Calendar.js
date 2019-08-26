@@ -8,7 +8,7 @@ import axios from 'axios'
 import Page from './Page'
 
 import {
-  DatePicker,
+  // DatePicker,
   MonthCalendar,
   EventCalendar
 } from '../components/calendar'
@@ -122,20 +122,10 @@ class Calendar extends React.Component {
       this.state.current = dateSet
     }
 
-    switch (props.match.params.type) {
-      // case 'day':
-      //   this.state.type = 'day'
-      //   break
-      // case 'week':
-      //   this.state.type = 'week'
-      //   break
-      default:
-      case 'month':
-        this.state.type = 'month'
-    }
-
     this.getEvents = this.getEvents.bind(this)
     this.setDate = this.setDate.bind(this)
+    this.next = this.next.bind(this)
+    this.previous = this.previous.bind(this)
   }
 
   getEvents (date = this.state.current.clone()) {
@@ -171,6 +161,14 @@ class Calendar extends React.Component {
     })
   }
 
+  previous () {
+    this.setDate(this.state.current.clone().add(-1, this.state.type))
+  }
+
+  next () {
+    this.setDate(this.state.current.clone().add(1, this.state.type))
+  }
+
   componentDidMount () {
     this.getEvents()
   }
@@ -179,13 +177,13 @@ class Calendar extends React.Component {
     if (this.props.match.params.type === 'event') return null
     return (
       <div className='Calendar'>
-        <div className='sidebar'>
+        {/* <div className='sidebar'>
           <DatePicker
             current={this.state.current}
             today={this.state.today}
             setDate={this.setDate}
           />
-        </div>
+        </div> */}
         {
           (() => {
             switch (this.state.type) {
@@ -195,13 +193,20 @@ class Calendar extends React.Component {
               //   return <WeekCalendar {...this.state} />
               default:
               case 'month':
-                return <MonthCalendar {...this.state} />
+                return (
+                  <MonthCalendar
+                    {...this.state}
+                    previous={this.previous}
+                    next={this.next}
+                  />
+                )
             }
           })()
         }
         <EventCalendar
           {...this.state}
-          setDate={this.setDate}
+          previous={this.previous}
+          next={this.next}
         />
       </div>
     )

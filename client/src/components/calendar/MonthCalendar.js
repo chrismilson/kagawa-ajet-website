@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
-import { FaBell } from 'react-icons/fa'
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 import './MonthCalendar.scss'
 
@@ -39,7 +39,6 @@ function Day (props) {
                     : null
                 }
               </div>
-              <FaBell className='icon' />
             </Link>
           ))
       }
@@ -97,17 +96,25 @@ function MonthCalendar (props) {
 
   return (
     <div className='MainCalendar MonthCalendar'>
-      <div className='labels'>
-        {
-          moment.weekdays().map((day, idx) => (
-            <div key={idx} className='day'>
-              <span className='long'>{day}</span>
-              <span className='short'>{day.substr(0, 3)}</span>
-            </div>
-          ))
-        }
+      <div className='previous' onClick={props.previous}>
+        <FaAngleLeft />
       </div>
-      {weeks}
+      <div className='main'>
+        <div className='labels'>
+          {
+            moment.weekdays().map((day, idx) => (
+              <div key={idx} className='day'>
+                <span className='long'>{day}</span>
+                <span className='short'>{day.substr(0, 3)}</span>
+              </div>
+            ))
+          }
+        </div>
+        {weeks}
+      </div>
+      <div className='next' onClick={props.next}>
+        <FaAngleRight />
+      </div>
     </div>
   )
 }

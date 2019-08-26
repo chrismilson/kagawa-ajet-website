@@ -93,9 +93,7 @@ class EventCalendar extends React.Component {
         <div className='picker'>
           <div
             className='previous'
-            onClick={() => this.props.setDate(
-              this.props.current.clone().add(-1, 'month')
-            )}
+            onClick={this.props.previous}
           >
             <FaAngleLeft />
           </div>
@@ -104,9 +102,7 @@ class EventCalendar extends React.Component {
           </div>
           <div
             className='next'
-            onClick={() => this.props.setDate(
-              this.props.current.clone().add(1, 'month')
-            )}
+            onClick={this.props.next}
           >
             <FaAngleRight />
           </div>
