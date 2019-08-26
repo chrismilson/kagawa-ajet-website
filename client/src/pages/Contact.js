@@ -18,7 +18,11 @@ function Contact (props) {
         </div>
         <div className='social line'>
           <h1><FaLine /> Line</h1>
-          <a href='http://nav.cx/gVHcg1H'>
+          <a
+            href='http://nav.cx/gVHcg1H'
+            target='_blank'
+            rel='noreferrer noopener'
+          >
             <img
               src='https://qr-official.line.me/sid/M/876fxbyc.png'
               alt='Line QR Code'
