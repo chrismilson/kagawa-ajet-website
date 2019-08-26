@@ -138,7 +138,7 @@ class Calendar extends React.Component {
       end.add(7 - end.day())
     }
 
-    axios.get('/api/calendar', {
+    axios.get('/api/calendar/events', {
       params: {
         timeMin: start.toISOString(),
         timeMax: end.toISOString()

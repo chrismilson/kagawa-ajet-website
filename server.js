@@ -13,7 +13,7 @@ var calendar = new CalendarApi(calSettings)
 app.use(express.static(path.join(__dirname, 'client/build')))
 app.use('/UdonBot', UdonBot)
 
-app.get('/api/calendar', (req, res) => {
+app.get('/api/calendar/events', (req, res) => {
   calendar.Events.list('primary', {
     timeMin: req.query.timeMin,
     timeMax: req.query.timeMax,
