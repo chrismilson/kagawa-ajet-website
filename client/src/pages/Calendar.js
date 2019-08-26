@@ -21,10 +21,10 @@ class EventPage extends React.Component {
 
     this.state = {}
 
-    this.getEvents = this.getEvents.bind(this)
+    this.getEvent = this.getEvent.bind(this)
   }
 
-  getEvents () {
+  getEvent () {
     axios.get('/api/calendar/event', {
       params: {
         id: this.props.match.params.id
@@ -36,7 +36,7 @@ class EventPage extends React.Component {
   }
 
   componentDidMount () {
-    this.getEvents()
+    this.getEvent()
   }
 
   render () {
@@ -160,9 +160,9 @@ class Calendar extends React.Component {
       }
     })
     if (date.isSame(this.state.now, this.state.type)) {
-      this.props.history.push('/calendar')
+      this.props.history.replace('/calendar')
     } else {
-      this.props.history.push('/calendar/' + date.format('YYYY-MM-DD'))
+      this.props.history.replace('/calendar/' + date.format('YYYY-MM-DD'))
     }
   }
 
@@ -179,7 +179,7 @@ class Calendar extends React.Component {
   }
 
   render () {
-    if (this.props.match.params.type === 'event') return null
+    if (this.props.match.params.date === 'event') return null
     return (
       <div className='Calendar'>
         {/* <div className='sidebar'>
