@@ -81,12 +81,13 @@ class EventCalendar extends React.Component {
   componentDidUpdate () {
     if (this.state.target.current) {
       window.scroll(0, this.state.target.current.offsetTop - 160)
+    } else {
+      window.scroll(0, 0)
     }
   }
 
   render () {
     var found = false
-    var top = !this.props.current.isSame(this.props.now, 'month')
 
     return (
       <div className='EventCalendar'>
@@ -136,9 +137,7 @@ class EventCalendar extends React.Component {
                           : e.start.date
                         )
                         if (!found) {
-                          if (start.isAfter(this.props.today) ||
-                          idx === this.props.events.length - 1 ||
-                          top) {
+                          if (start.isAfter(this.props.today)) {
                             ref = this.state.target
                             found = true
                           }
