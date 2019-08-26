@@ -5,6 +5,40 @@ import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 import './MonthCalendar.scss'
 
+function Event (props) {
+  return (
+    <Link
+      to={'/calendar/event/' + props.event.id}
+      className='Event'
+    >
+      <div className='main'>
+        <div className='summary'>
+          <strong>
+            {props.event.summary}
+          </strong>
+          <br />
+          {
+            props.event.start.dateTime !== undefined
+              ? moment(props.event.start.dateTime).format('h:mma')
+              : null
+          }
+        </div>
+      </div>
+      <div className='tooltip'>
+        <strong>
+          {props.event.summary}
+        </strong>
+        -
+        {
+          props.event.start.dateTime !== undefined
+            ? moment(props.event.start.dateTime).format('h:mma')
+            : null
+        }
+      </div>
+    </Link>
+  )
+}
+
 function Day (props) {
   return (
     <div
@@ -21,26 +55,7 @@ function Day (props) {
       {
         props.events === undefined
           ? null
-          : props.events.map((event, idx) => (
-            <Link
-              key={idx}
-              to={'/calendar/event/' + event.id}
-              className='event'
-            >
-              <div className='summary'>
-
-                <strong>
-                  {event.summary}
-                </strong>
-                <br />
-                {
-                  event.start.dateTime !== undefined
-                    ? moment(event.start.dateTime).format('h:mma')
-                    : null
-                }
-              </div>
-            </Link>
-          ))
+          : props.events.map((event, idx) => <Event key={idx} event={event} />)
       }
     </div>
   )

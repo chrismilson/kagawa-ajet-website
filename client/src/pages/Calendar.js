@@ -159,6 +159,11 @@ class Calendar extends React.Component {
         current: date
       }
     })
+    if (date.isSame(this.state.now, this.state.type)) {
+      this.props.history.push('/calendar')
+    } else {
+      this.props.history.push('/calendar/' + date.format('YYYY-MM-DD'))
+    }
   }
 
   previous () {
