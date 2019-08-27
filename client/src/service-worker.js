@@ -7,7 +7,8 @@ self.addEventListener('push', e => {
   const data = e.data.json()
   self.registration.showNotification(data.title, {
     body: data.body,
-    icon: '/icon/UdonHenro-192.png'
+    icon: '/icon/UdonHenro-192.png',
+    badge: '/icon/UdonHenro-192.png'
   })
 })
 
