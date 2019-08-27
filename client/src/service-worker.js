@@ -13,4 +13,19 @@ self.addEventListener('push', e => {
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest)
 
-workbox.routing.registerRoute('/', workbox.strategies.networkFirst())
+workbox.routing.registerRoute(
+  /\.js$/,
+  new workbox.strategies.NetworkFirst()
+)
+workbox.routing.registerRoute(
+  /\.css$/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'css-cache'
+  })
+)
+workbox.routing.registerRoute(
+  /\.(?:png|jpg|jpeg|svg|gif)$/,
+  new workbox.strategies.CacheFirst({
+    cacheName: 'image-cache'
+  })
+)
