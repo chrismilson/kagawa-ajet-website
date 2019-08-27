@@ -3,6 +3,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const CalendarApi = require('node-google-calendar')
 const webpush = require('web-push')
+const { OAuth2Client } = require('google-auth-library')
 
 const calSettings = require('./calendar-settings')
 const pushSettings = require('./push-settings')
@@ -62,7 +63,41 @@ app.post('/api/subscribe', (req, res) => {
     .catch(console.error)
 })
 
-app.post('/push', (req, res) => {
+app.post('/push', (req, res, next) => {
+  // Make sure the token is coming from the correct app
+  if (req.body.auth === null) {
+    res.status(500).json({
+      message: 'Failed',
+      error: 'No Auth'
+    })
+  } else {
+    const clientId = '1041590858311-m20k80j8364bsta2gbiohhdqjc6hj7u5.apps.googleusercontent.com'
+    const client = new OAuth2Client(clientId)
+
+    client.verifyIdToken({
+      idToken: req.body.auth,
+      audience: clientId
+    })
+      .then(ticket => {
+        // Only allow the Kagawa AJET google account to send messages
+        if (ticket.payload.sub === '109435964458075825398') {
+          next()
+        } else {
+          res.status(401).json({
+            message: 'Failed',
+            error: 'Unauthorised'
+          })
+        }
+      })
+      .catch(err => {
+        console.error(err)
+        res.status(500).json({
+          message: 'Failed',
+          error: 'Could not verify'
+        })
+      })
+  }
+}, (req, res) => {
   if (req.body.serverMessage) console.log(req.body.serverMessage)
   subs.forAll((subscription, id) => {
     webpush
@@ -81,7 +116,8 @@ app.post('/push', (req, res) => {
     .catch(err => {
       console.error(err)
       res.status(500).json({
-        message: 'Failed'
+        message: 'Failed',
+        error: 'Could not send'
       })
     })
 })
