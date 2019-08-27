@@ -7,6 +7,7 @@ const webpush = require('web-push')
 const calSettings = require('./calendar-settings')
 const pushSettings = require('./push-settings')
 const UdonBot = require('./UdonBot')
+const subs = require('./subscribers')
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -46,14 +47,17 @@ app.get('/api/calendar/event', (req, res) => {
 app.post('/api/subscribe', (req, res) => {
   const subscription = req.body
 
+  subs.add(subscription)
+    .catch(err => console.error(err))
+
   res.status(201).json({})
 
   const payload = JSON.stringify({
     title: 'Thanks!',
-    body: 'Thank you for subscribing to Kagawa AJET!'
+    body: 'You subscribed to Kagawa AJET!'
   })
 
-  console.log('subscribed')
+  console.log(subscription.endpoint, 'subscribed')
 
   webpush
     .sendNotification(subscription, payload)
