@@ -14,6 +14,7 @@ import Calendar from './pages/Calendar'
 import Contact from './pages/Contact'
 import Default from './pages/Default'
 import License from './pages/License'
+import Settings from './pages/Settings'
 
 const config = {
   title: 'Kagawa AJET',
@@ -48,6 +49,12 @@ const config = {
       name: 'License',
       path: '/license',
       component: License,
+      hidden: true
+    },
+    {
+      name: 'Settings',
+      path: '/settings',
+      component: Settings,
       hidden: true
     }
   ]

@@ -1,6 +1,7 @@
 import React from 'react'
 import './Footer.scss'
 import { Link } from 'react-router-dom'
+import { FaCog } from 'react-icons/fa'
 
 function Footer () {
   return (
@@ -18,6 +19,11 @@ function Footer () {
         </a> */}
         <Link to='/license'>
           {'\xa9'} 2019 Kagawa AJET
+        </Link>
+      </div>
+      <div className='push-subscribe'>
+        <Link to='/settings'>
+          <FaCog />
         </Link>
       </div>
       <div className='google-calendar-link'>

@@ -23,7 +23,7 @@ const isLocalhost = Boolean(
 )
 
 export function register (config) {
-  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href)
     if (publicUrl.origin !== window.location.origin) {
@@ -34,7 +34,9 @@ export function register (config) {
     }
 
     window.addEventListener('load', () => {
-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`
+      const swUrl = process.env.NODE_ENV === 'production'
+        ? `${process.env.PUBLIC_URL}/service-worker.js`
+        : `${process.env.PUBLIC_URL}/sw.js`
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
@@ -105,7 +107,7 @@ function checkValidServiceWorker (swUrl, config) {
   axios.get(swUrl)
     .then(response => {
       // Ensure service worker exists, and that we really are getting a JS file.
-      const contentType = response.headers.get('content-type')
+      const contentType = response.headers['content-type']
       if (
         response.status === 404 ||
         (contentType != null && contentType.indexOf('javascript') === -1)
@@ -134,4 +136,79 @@ export function unregister () {
       registration.unregister()
     })
   }
+}
+
+export function subscribe () {
+  return new Promise((resolve, reject) => {
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+      const publicVapidKey = 'BCDbDny7iDbCpZQ6llBtl9ANwZBTVXD8EgofXbuGAXzp0Ku7NbYbMlR9BJvhj7oOQEUs-uofTQNpnUGDpyWl2FI'
+      navigator.serviceWorker.ready.then(registration => {
+        registration.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
+        })
+          .then(subscription => {
+            axios.post('/api/subscribe', subscription)
+              .then(resolve)
+          })
+      })
+    }
+  })
+}
+
+export function unsubscribe () {
+  return new Promise((resolve, reject) => {
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+      navigator.serviceWorker.ready.then(registration => {
+        registration.pushManager.getSubscription()
+          .then(sub => {
+            if (sub) {
+              return sub.unsubscribe()
+            }
+          })
+          .then(() => {
+            console.log('Unsubscribed from Push Notifications')
+            resolve()
+          })
+          .catch(err => console.error(err))
+      })
+    }
+  })
+}
+
+export function isSubscribed () {
+  return new Promise((resolve, reject) => {
+    if ('serviceWorker' in navigator && 'PushManager' in window) {
+      navigator.serviceWorker.ready.then(registration => {
+        if (registration === null) {
+          reject(new Error('No registered service worker.'))
+        }
+        registration.pushManager.getSubscription()
+          .then(sub => {
+            resolve({
+              enabled: sub !== null,
+              enable: subscribe,
+              disable: unsubscribe
+            })
+          })
+      })
+    } else {
+      reject(new Error('Push messaging is not supported.'))
+    }
+  })
+}
+
+function urlBase64ToUint8Array (base64String) {
+  const padding = '='.repeat((4 - base64String.length % 4) % 4)
+  const base64 = (base64String + padding)
+    .replace(/-/g, '+')
+    .replace(/_/g, '/')
+
+  const rawData = window.atob(base64)
+  const outputArray = new Uint8Array(rawData.length)
+
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i)
+  }
+  return outputArray
 }

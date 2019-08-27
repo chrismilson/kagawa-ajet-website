@@ -1,15 +1,24 @@
 const express = require('express')
 const path = require('path')
+const bodyParser = require('body-parser')
 const CalendarApi = require('node-google-calendar')
+const webpush = require('web-push')
 
 const calSettings = require('./calendar-settings')
+const pushSettings = require('./push-settings')
 const UdonBot = require('./UdonBot')
 
 const app = express()
 const PORT = process.env.PORT || 5000
-
 var calendar = new CalendarApi(calSettings)
 
+webpush.setVapidDetails(
+  'mailto:truck@test.com',
+  pushSettings.vapidPublicKey,
+  pushSettings.vapidPrivateKey
+)
+
+app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'client/build')))
 app.use('/UdonBot', UdonBot)
 
@@ -22,7 +31,7 @@ app.get('/api/calendar/events', (req, res) => {
     calendarId: 'gprr6e1so5bm32gjig3vf5ehk8@group.calendar.google.com'
   })
     .then(data => res.send(data))
-    .catch(err => console.log(err))
+    .catch(err => console.error(err))
 })
 
 app.get('/api/calendar/event', (req, res) => {
@@ -31,6 +40,23 @@ app.get('/api/calendar/event', (req, res) => {
     calendarId: 'gprr6e1so5bm32gjig3vf5ehk8@group.calendar.google.com'
   })
     .then(data => res.send(data))
+    .catch(err => console.error(err))
+})
+
+app.post('/api/subscribe', (req, res) => {
+  const subscription = req.body
+
+  res.status(201).json({})
+
+  const payload = JSON.stringify({
+    title: 'Thanks!',
+    body: 'Thank you for subscribing to Kagawa AJET!'
+  })
+
+  console.log('subscribed')
+
+  webpush
+    .sendNotification(subscription, payload)
     .catch(err => console.log(err))
 })
 

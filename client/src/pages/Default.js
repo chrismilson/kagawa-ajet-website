@@ -4,7 +4,7 @@ import Page from './Page'
 function Default () {
   return (
     <Page className='Default'>
-      <div className='col'>
+      <div className='col text'>
         <h1>Page not found...</h1>
         <p>
           Oh dear...

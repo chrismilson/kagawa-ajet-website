@@ -1,0 +1,46 @@
+@import '../variables.scss';
+
+.Settings {
+  user-select: none;
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+
+    .option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1rem 0;
+
+      .summary {
+        font-weight: bold;
+
+      }
+    }
+  }
+
+  .EnableButton {
+    display: flex;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    background-color: darken($color-2, 20%);
+    
+    &.available {
+      cursor: pointer;
+      box-shadow: 0.1rem 0.1rem black;
+
+      &:active {
+        box-shadow: none;
+        transform: translate(0.1rem, 0.1rem);
+      }
+    }
+
+    &.unavailable {
+      cursor: not-allowed;
+      color: darken(white, 20%);
+    }
+  }
+}
