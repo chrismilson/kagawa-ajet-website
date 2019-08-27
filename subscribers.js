@@ -24,6 +24,10 @@ db.once('open', () => {
   console.log('connected to database!')
 })
 
+const forAll = function (action) {
+  Subscriber.find({}, action)
+}
+
 const add = function (subscription) {
   return new Promise((resolve, reject) => {
     Subscriber.create({
@@ -35,5 +39,6 @@ const add = function (subscription) {
 }
 
 module.exports = {
+  forAll,
   add
 }
