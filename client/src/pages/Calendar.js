@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import { Route } from 'react-router-dom'
-import { FaMapMarkerAlt } from 'react-icons/fa'
+import { FaMapMarkerAlt, FaTimes } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown/with-html'
 import axios from 'axios'
 
@@ -58,7 +58,15 @@ class EventPage extends React.Component {
             ? <div className='loading col'>Loading...</div>
             : (
               <div className='event text'>
-                <h1>{this.state.event.summary}</h1>
+                <div className='summary'>
+                  <h1>{this.state.event.summary}</h1>
+                  <h1
+                    className='exit'
+                    onClick={this.props.history.goBack}
+                  >
+                    <FaTimes />
+                  </h1>
+                </div>
                 {
                   this.state.event.location
                     ? (
