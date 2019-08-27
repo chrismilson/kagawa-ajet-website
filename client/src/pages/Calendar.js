@@ -134,6 +134,7 @@ class Calendar extends React.Component {
     this.setDate = this.setDate.bind(this)
     this.next = this.next.bind(this)
     this.previous = this.previous.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
   getEvents (date = this.state.current.clone()) {
@@ -182,14 +183,35 @@ class Calendar extends React.Component {
     this.setDate(this.state.current.clone().add(1, this.state.type))
   }
 
+  handleKeyPress (event) {
+    switch (event.key) {
+      case 'ArrowLeft':
+        this.previous()
+        break
+      case 'ArrowRight':
+        this.next()
+        break
+      default:
+        console.log(event.key)
+    }
+  }
+
   componentDidMount () {
     this.getEvents()
+    document.addEventListener('keydown', this.handleKeyPress)
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener('keydown', this.handleKeyPress)
   }
 
   render () {
     if (this.props.match.params.date === 'event') return null
     return (
-      <div className='Calendar'>
+      <div
+        className='Calendar'
+
+      >
         {/* <div className='sidebar'>
           <DatePicker
             current={this.state.current}
