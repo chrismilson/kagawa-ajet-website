@@ -1,6 +1,6 @@
 import React from 'react'
 
-import * as sw from '../serviceWorker'
+import * as sw from '../registerServiceWorker'
 import Page from './Page'
 
 import './Settings.scss'
