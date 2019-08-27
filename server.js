@@ -67,17 +67,16 @@ app.post('/push', (req, res, next) => {
   // If not, redirect to authentication.
   next()
 }, (req, res) => {
-  subs.forAll(subscription => {
+  if (req.body.serverMessage) console.log(req.body.serverMessage)
+  subs.forAll((subscription, id) => {
     webpush
-      .sendNotification(subscription, req.payload)
-      .then(() => res.status(200).json({
-        message: 'Sent Successfully'
-      }))
-      .catch(err => {
-        res.status(500).json({
-          message: 'Failed',
-          err: err
-        })
+      .sendNotification(subscription, req.body.payload)
+      .catch((err) => {
+        if (err.statusCode === 404 || err.statusCode === 410) {
+          subs.remove(id)
+        } else {
+          console.error(err)
+        }
       })
   })
 })

@@ -25,7 +25,13 @@ db.once('open', () => {
 })
 
 const forAll = function (action) {
-  Subscriber.find({}, action)
+  Subscriber.find({}, (err, docs) => {
+    if (err) throw err
+
+    console.log(docs)
+
+    docs.map(doc => action(JSON.parse(doc.subscription), doc._id))
+  })
 }
 
 const add = function (subscription) {
@@ -38,7 +44,16 @@ const add = function (subscription) {
   })
 }
 
+const remove = function (id) {
+  return new Promise((resolve, reject) => {
+    Subscriber.findByIdAndDelete(id)
+      .then(resolve)
+      .catch(reject)
+  })
+}
+
 module.exports = {
   forAll,
-  add
+  add,
+  remove
 }
