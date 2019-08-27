@@ -32,7 +32,7 @@ app.get('/api/calendar/events', (req, res) => {
     calendarId: 'gprr6e1so5bm32gjig3vf5ehk8@group.calendar.google.com'
   })
     .then(data => res.send(data))
-    .catch(err => console.error(err))
+    .catch(console.error)
 })
 
 app.get('/api/calendar/event', (req, res) => {
@@ -41,14 +41,14 @@ app.get('/api/calendar/event', (req, res) => {
     calendarId: 'gprr6e1so5bm32gjig3vf5ehk8@group.calendar.google.com'
   })
     .then(data => res.send(data))
-    .catch(err => console.error(err))
+    .catch(console.error)
 })
 
 app.post('/api/subscribe', (req, res) => {
   const subscription = req.body
 
   subs.add(subscription)
-    .catch(err => console.error(err))
+    .catch(console.error)
 
   res.status(201).json({})
 
@@ -57,11 +57,29 @@ app.post('/api/subscribe', (req, res) => {
     body: 'You subscribed to Kagawa AJET!'
   })
 
-  console.log(subscription.endpoint, 'subscribed')
-
   webpush
     .sendNotification(subscription, payload)
-    .catch(err => console.log(err))
+    .catch(console.error)
+})
+
+app.post('/push', (req, res, next) => {
+  // check if authenticated and send to router.
+  // If not, redirect to authentication.
+  next()
+}, (req, res) => {
+  subs.forAll(subscription => {
+    webpush
+      .sendNotification(subscription, req.payload)
+      .then(() => res.status(200).json({
+        message: 'Sent Successfully'
+      }))
+      .catch(err => {
+        res.status(500).json({
+          message: 'Failed',
+          err: err
+        })
+      })
+  })
 })
 
 app.get('*', (req, res) => {
