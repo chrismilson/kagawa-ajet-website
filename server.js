@@ -62,11 +62,7 @@ app.post('/api/subscribe', (req, res) => {
     .catch(console.error)
 })
 
-app.post('/push', (req, res, next) => {
-  // check if authenticated and send to router.
-  // If not, redirect to authentication.
-  next()
-}, (req, res) => {
+app.post('/push', (req, res) => {
   if (req.body.serverMessage) console.log(req.body.serverMessage)
   subs.forAll((subscription, id) => {
     webpush
@@ -79,8 +75,15 @@ app.post('/push', (req, res, next) => {
         }
       })
   })
-    .then(res.status(200).send)
-    .catch(res.status(500).send)
+    .then(() => res.status(200).json({
+      message: 'Success'
+    }))
+    .catch(err => {
+      console.error(err)
+      res.status(500).json({
+        message: 'Failed'
+      })
+    })
 })
 
 app.get('*', (req, res) => {

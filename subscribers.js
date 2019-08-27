@@ -29,8 +29,6 @@ const forAll = function (action) {
     Subscriber.find({}, (err, docs) => {
       if (err) reject(err)
 
-      console.log(docs)
-
       docs.map(doc => action(JSON.parse(doc.subscription), doc._id))
     })
     resolve()
