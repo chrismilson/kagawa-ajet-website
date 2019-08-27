@@ -25,12 +25,15 @@ db.once('open', () => {
 })
 
 const forAll = function (action) {
-  Subscriber.find({}, (err, docs) => {
-    if (err) throw err
+  return new Promise((resolve, reject) => {
+    Subscriber.find({}, (err, docs) => {
+      if (err) reject(err)
 
-    console.log(docs)
+      console.log(docs)
 
-    docs.map(doc => action(JSON.parse(doc.subscription), doc._id))
+      docs.map(doc => action(JSON.parse(doc.subscription), doc._id))
+    })
+    resolve()
   })
 }
 

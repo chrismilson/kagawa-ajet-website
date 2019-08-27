@@ -79,6 +79,8 @@ app.post('/push', (req, res, next) => {
         }
       })
   })
+    .then(res.status(200).send)
+    .catch(res.status(500).send)
 })
 
 app.get('*', (req, res) => {
