@@ -22,9 +22,7 @@ This can hopefully consolidate them all into an easy to service bundle.
 
 ## To Do List
 
-- [ ] Login with Google Account.
-- [ ] Push notifications
-- [ ] Get started page for new peopls
+- [ ] Get started page for new people
 - New Jet Materials
   - Content
     - [ ] Electronics in Japan
@@ -68,3 +66,5 @@ This can hopefully consolidate them all into an easy to service bundle.
     - [X] Marugame
     - [X] Naoshima
     - [X] Zentsuji
+- [X] Login with Google Account
+- [X] Push notifications
