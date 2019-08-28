@@ -23,15 +23,18 @@ self.addEventListener('push', e => {
 })
 
 self.addEventListener('notificationclick', e => {
-  var notification = e.notification
-  var action = e.action
+  e.notification.close()
 
-  if (action === 'close') {
-    notification.close()
-  } else {
-    clients.openWindow('https://kagawa-ajet.herokuapp.com')
-    notification.close()
+  let url = 'https://kagawa-ajet.herokuapp.com'
+
+  switch (e.action) {
+    case 'events':
+      url += '/calendar'
+      break
+    default:
   }
+
+  e.waitUntil(client.open(url))
 })
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest)
