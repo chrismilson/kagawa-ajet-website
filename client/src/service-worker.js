@@ -5,11 +5,10 @@ self.addEventListener('install', event => event.waitUntil(self.skipWaiting()))
 self.addEventListener('activate', event => event.waitUntil(self.clients.claim()))
 self.addEventListener('push', e => {
   const data = e.data.json()
-  self.registration.showNotification(data.title, {
-    body: data.body,
-    icon: '/icon/UdonHenro-192.png',
-    badge: '/icon/UdonHenro-192.png'
-  })
+  data.options.icon = data.options.icon || '/icon/UdonHenro-512.png'
+  data.options.badge = data.options.badge || '/icon/badge-512.png'
+
+  self.registration.showNotification(data.title, data.options)
 })
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest)
