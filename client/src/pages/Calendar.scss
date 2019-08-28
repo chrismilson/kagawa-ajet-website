@@ -67,7 +67,12 @@
   min-height: calc(100vh - 10rem);
   margin-top: 5rem;
 
+  .event {
+    width: 100%;
+  }
+  
   .summary {
+    width: 100%;
     display: flex;
     justify-content: space-between;
   }
