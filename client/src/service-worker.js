@@ -3,14 +3,33 @@
 
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()))
 self.addEventListener('activate', event => event.waitUntil(self.clients.claim()))
+
 self.addEventListener('push', e => {
   const data = e.data.json()
 
   // set defaults
-  data.options.icon = data.options.icon || '/icon/UdonHenro-512.png'
-  data.options.badge = data.options.badge || '/icon/badge-512.png'
+  var options = data.options
+  options.icon = options.icon || '/icon/UdonHenro-512.png'
+  options.badge = options.badge || '/icon/badge-512.png'
+  options.vibrate = options.silent
+    ? undefined
+    : options.vibrate || [
+      50, 150, 50, 50, 50, 50, 50, 150, 50
+    ]
 
-  self.registration.showNotification(data.title, data.options)
+  return self.registration.showNotification(data.title, options)
+})
+
+self.addEventListener('notificationclick', e => {
+  var notification = e.notification
+  var action = e.action
+
+  if (action === 'close') {
+    notification.close()
+  } else {
+    clients.openWindow('https://kagawa-ajet.herokuapp.com')
+    notification.close()
+  }
 })
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest)
