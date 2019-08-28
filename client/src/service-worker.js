@@ -16,6 +16,7 @@ self.addEventListener('push', event => {
     : options.vibrate || [
       50, 150, 50, 50, 50, 50, 50, 150, 50
     ]
+  options.data = options.data || {}
 
   event.waitUntil(
     self.registration.showNotification(data.title, options)
@@ -33,7 +34,7 @@ self.addEventListener('notificationclick', event => {
       url = baseUrl + '/calendar'
       break
     default:
-      url = baseUrl
+      url = event.notification.data.url || baseUrl
   }
 
   event.waitUntil(
