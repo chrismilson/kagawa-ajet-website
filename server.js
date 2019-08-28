@@ -100,7 +100,11 @@ app.post('/push', (req, res, next) => {
       })
   }
 }, (req, res) => {
-  if (req.body.serverMessage) console.log(req.body.serverMessage)
+  if (req.body.serverMessage) {
+    console.log(req.body.serverMessage)
+    console.log(JSON.stringify(JSON.parse(req.body.payload), null, 2))
+  }
+
   subs.forAll((subscription, id) => {
     webpush
       .sendNotification(subscription, req.body.payload)
