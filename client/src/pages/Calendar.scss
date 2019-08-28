@@ -75,6 +75,10 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    .exit {
+      cursor: pointer;
+    }
   }
 
   .description a {
