@@ -5,21 +5,21 @@ self.addEventListener('install', event => event.waitUntil(self.skipWaiting()))
 self.addEventListener('activate', event => event.waitUntil(self.clients.claim()))
 
 self.addEventListener('push', e => {
-  event.waitUntil(new Promise((resolve, reject) => {
-    const data = e.data.json()
+  const data = e.data.json()
 
-    // set defaults
-    var options = data.options
-    options.icon = options.icon || '/icon/UdonHenro-512.png'
-    options.badge = options.badge || '/icon/badge-512.png'
-    options.vibrate = options.silent
-      ? undefined
-      : options.vibrate || [
-        50, 150, 50, 50, 50, 50, 50, 150, 50
-      ]
+  // set defaults
+  var options = data.options
+  options.icon = options.icon || '/icon/UdonHenro-512.png'
+  options.badge = options.badge || '/icon/badge-512.png'
+  options.vibrate = options.silent
+    ? undefined
+    : options.vibrate || [
+      50, 150, 50, 50, 50, 50, 50, 150, 50
+    ]
 
-    resolve(self.registration.showNotification(data.title, options))
-  }))
+  event.waitUntil(
+    self.registration.showNotification(data.title, options)
+  )
 })
 
 self.addEventListener('notificationclick', e => {
