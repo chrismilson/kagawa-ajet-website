@@ -27,14 +27,16 @@ self.addEventListener('notificationclick', event => {
   event.notification.close()
 
   let url
-  var baseUrl = 'https://kagawa-ajet.herokuapp.com'
 
   switch (event.action) {
     case 'events':
-      url = baseUrl + '/calendar'
+      url = '/calendar'
+      break
+    case 'custom':
+      url = event.notification.data.url || '/'
       break
     default:
-      url = event.notification.data.url || baseUrl
+      url = '/'
   }
 
   event.waitUntil(
