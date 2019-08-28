@@ -5,6 +5,8 @@ self.addEventListener('install', event => event.waitUntil(self.skipWaiting()))
 self.addEventListener('activate', event => event.waitUntil(self.clients.claim()))
 self.addEventListener('push', e => {
   const data = e.data.json()
+
+  // set defaults
   data.options.icon = data.options.icon || '/icon/UdonHenro-512.png'
   data.options.badge = data.options.badge || '/icon/badge-512.png'
 

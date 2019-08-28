@@ -55,7 +55,9 @@ app.post('/api/subscribe', (req, res) => {
 
   const payload = JSON.stringify({
     title: 'Thanks!',
-    body: 'You subscribed to Kagawa AJET!'
+    options: {
+      body: 'You subscribed to Kagawa AJET!'
+    }
   })
 
   webpush
