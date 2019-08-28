@@ -4,8 +4,8 @@
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()))
 self.addEventListener('activate', event => event.waitUntil(self.clients.claim()))
 
-self.addEventListener('push', e => {
-  const data = e.data.json()
+self.addEventListener('push', event => {
+  const data = event.data.json()
 
   // set defaults
   var options = data.options
@@ -17,24 +17,39 @@ self.addEventListener('push', e => {
       50, 150, 50, 50, 50, 50, 50, 150, 50
     ]
 
-  e.waitUntil(
+  event.waitUntil(
     self.registration.showNotification(data.title, options)
   )
 })
 
-self.addEventListener('notificationclick', e => {
-  e.notification.close()
+self.addEventListener('notificationclick', event => {
+  event.notification.close()
 
-  let url = 'https://kagawa-ajet.herokuapp.com'
+  let url
+  var baseUrl = 'https://kagawa-ajet.herokuapp.com'
 
-  switch (e.action) {
+  switch (event.action) {
     case 'events':
-      url += '/calendar'
+      url = baseUrl + '/calendar'
       break
     default:
+      url = baseUrl
   }
 
-  e.waitUntil(client.open(url))
+  event.waitUntil(
+    clients.matchAll({ includeUncontrolled: true })
+      .then(windowClients => {
+        if (
+          windowClients.length > 0 &&
+          'focus' in windowClients[0]
+        ) {
+          var client = windowClients[0]
+          return client.focus().then(() => client.navigate(url))
+        } else {
+          return clients.openWindow(url)
+        }
+      })
+  )
 })
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest)
