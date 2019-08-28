@@ -102,7 +102,7 @@ app.post('/push', (req, res, next) => {
 }, (req, res) => {
   if (req.body.serverMessage) {
     console.log(req.body.serverMessage)
-    console.log(JSON.stringify(JSON.parse(req.body.payload), null, 2))
+    console.log(JSON.parse(req.body.payload))
   }
 
   subs.forAll((subscription, id) => {
