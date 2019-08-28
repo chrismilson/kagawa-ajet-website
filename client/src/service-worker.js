@@ -17,7 +17,7 @@ self.addEventListener('push', e => {
       50, 150, 50, 50, 50, 50, 50, 150, 50
     ]
 
-  event.waitUntil(
+  e.waitUntil(
     self.registration.showNotification(data.title, options)
   )
 })
