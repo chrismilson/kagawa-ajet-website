@@ -16,7 +16,9 @@ self.addEventListener('push', event => {
     : options.vibrate || [
       50, 150, 50, 50, 50, 50, 50, 150, 50
     ]
-  options.data = options.data || {}
+  options.data = options.data || {
+    url: '/'
+  }
 
   event.waitUntil(
     self.registration.showNotification(data.title, options)
@@ -25,34 +27,33 @@ self.addEventListener('push', event => {
 
 self.addEventListener('notificationclick', event => {
   event.notification.close()
+  const urlToOpen = new URL(
+    event.notification.url,
+    self.location.origin
+  ).href
 
-  let url
+  const promiseChain = clients.matchAll({
+    type: 'window',
+    includeUncontrolled: true
+  }).then((windowClients) => {
+    let matchingClient = null
 
-  switch (event.action) {
-    case 'events':
-      url = '/calendar'
-      break
-    case 'custom':
-      url = event.notification.data.url || '/'
-      break
-    default:
-      url = '/'
-  }
+    for (let i = 0; i < windowClients.length; i++) {
+      const windowClient = windowClients[i]
+      if (windowClient.url === urlToOpen) {
+        matchingClient = windowClient
+        break
+      }
+    }
 
-  event.waitUntil(
-    clients.matchAll({ includeUncontrolled: true })
-      .then(windowClients => {
-        if (
-          windowClients.length > 0 &&
-          'focus' in windowClients[0]
-        ) {
-          var client = windowClients[0]
-          return client.focus().then(() => client.navigate(url))
-        } else {
-          return clients.openWindow(url)
-        }
-      })
-  )
+    if (matchingClient) {
+      return matchingClient.focus()
+    } else {
+      return clients.openWindow(urlToOpen)
+    }
+  })
+
+  event.waitUntil(promiseChain)
 })
 
 workbox.precaching.precacheAndRoute(self.__precacheManifest)
