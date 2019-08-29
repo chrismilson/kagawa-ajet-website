@@ -16,9 +16,6 @@ self.addEventListener('push', event => {
     : options.vibrate || [
       50, 150, 50, 50, 50, 50, 50, 150, 50
     ]
-  options.data = options.data || {
-    url: '/'
-  }
 
   event.waitUntil(
     self.registration.showNotification(data.title, options)
@@ -27,6 +24,9 @@ self.addEventListener('push', event => {
 
 self.addEventListener('notificationclick', event => {
   event.notification.close()
+
+  if (!event.notification.data.url) return
+
   const urlToOpen = new URL(
     event.notification.data.url,
     self.location.origin
