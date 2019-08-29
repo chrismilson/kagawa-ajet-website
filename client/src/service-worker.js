@@ -74,3 +74,7 @@ workbox.routing.registerRoute(
     cacheName: 'image-cache'
   })
 )
+
+workbox.routing.registerNavigationRoute(
+  workbox.precaching.getCacheKeyForURL('/index.html')
+)
