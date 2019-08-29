@@ -28,7 +28,7 @@ self.addEventListener('push', event => {
 self.addEventListener('notificationclick', event => {
   event.notification.close()
   const urlToOpen = new URL(
-    event.notification.url,
+    event.notification.data.url,
     self.location.origin
   ).href
 
