@@ -24,7 +24,15 @@ class EnableButton extends React.Component {
         this.setState(() => ({
           text: state.enabled ? 'Disable' : 'Enable',
           class: 'available',
-          onClick: state.enabled ? state.disable : state.enable
+          onClick: () => {
+            this.setState(() => ({
+              class: 'unavailable',
+              onClick: null
+            }))
+            return state.enabled
+              ? state.disable()
+              : state.enable()
+          }
         }))
       })
       .catch(err => {
