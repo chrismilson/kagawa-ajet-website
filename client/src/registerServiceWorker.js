@@ -146,7 +146,7 @@ export function subscribe () {
           applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
         })
           .then(subscription => {
-            axios.post('/api/subscribe', subscription)
+            axios.post('/push/subscribe', subscription)
               .then(resolve)
           })
       })
