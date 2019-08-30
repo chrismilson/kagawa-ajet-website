@@ -160,6 +160,7 @@ class Calendar extends React.Component {
   }
 
   setDate (date) {
+    date.startOf(this.state.type)
     if (!date.isSame(this.state.current, this.state.type)) {
       this.getEvents(date)
     }

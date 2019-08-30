@@ -137,7 +137,7 @@ class EventCalendar extends React.Component {
                           : e.start.date
                         )
                         if (!found) {
-                          if (start.isAfter(this.props.today)) {
+                          if (start.isAfter(this.props.current)) {
                             ref = this.state.target
                             found = true
                           }
