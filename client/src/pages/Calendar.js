@@ -208,10 +208,7 @@ class Calendar extends React.Component {
   render () {
     if (this.props.match.params.date === 'event') return null
     return (
-      <div
-        className='Calendar'
-
-      >
+      <div className='Calendar'>
         {/* <div className='sidebar'>
           <DatePicker
             current={this.state.current}

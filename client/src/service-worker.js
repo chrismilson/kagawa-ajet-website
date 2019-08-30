@@ -1,8 +1,12 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-restricted-globals */
 
-self.addEventListener('install', event => event.waitUntil(self.skipWaiting()))
-self.addEventListener('activate', event => event.waitUntil(self.clients.claim()))
+self.addEventListener('install', event => {
+  event.waitUntil(self.skipWaiting())
+})
+self.addEventListener('activate', event => {
+  event.waitUntil(self.clients.claim())
+})
 
 self.addEventListener('push', event => {
   const data = event.data.json()
@@ -17,9 +21,9 @@ self.addEventListener('push', event => {
       50, 150, 50, 50, 50, 50, 50, 150, 50
     ]
 
-  event.waitUntil(
-    self.registration.showNotification(data.title, options)
-  )
+  var promiseChain = self.registration.showNotification(data.title, options)
+
+  event.waitUntil(promiseChain)
 })
 
 self.addEventListener('notificationclick', event => {
@@ -35,23 +39,14 @@ self.addEventListener('notificationclick', event => {
   const promiseChain = clients.matchAll({
     type: 'window',
     includeUncontrolled: true
-  }).then((windowClients) => {
-    let matchingClient = null
-
-    for (let i = 0; i < windowClients.length; i++) {
-      const windowClient = windowClients[i]
-      if (windowClient.url === urlToOpen) {
-        matchingClient = windowClient
-        break
-      }
-    }
-
-    if (matchingClient) {
-      return matchingClient.focus()
-    } else {
-      return clients.openWindow(urlToOpen)
-    }
   })
+    .then((windowClients) => {
+      if (windowClients.length > 0) {
+        return windowClients[0].focus()
+      } else {
+        return clients.openWindow(urlToOpen)
+      }
+    })
 
   event.waitUntil(promiseChain)
 })
@@ -59,19 +54,16 @@ self.addEventListener('notificationclick', event => {
 workbox.precaching.precacheAndRoute(self.__precacheManifest)
 
 workbox.routing.registerRoute(
-  /\.js$/,
-  new workbox.strategies.NetworkFirst()
-)
-workbox.routing.registerRoute(
-  /\.css$/,
+  'https://qr-official.line.me/sid/M/876fxbyc.png',
   new workbox.strategies.StaleWhileRevalidate({
-    cacheName: 'css-cache'
+    cacheName: 'external-cache'
   })
 )
+
 workbox.routing.registerRoute(
-  /\.(?:png|jpg|jpeg|svg|gif)$/,
-  new workbox.strategies.CacheFirst({
-    cacheName: 'image-cache'
+  /\/api\/calendar/,
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'calendar-cache'
   })
 )
 
