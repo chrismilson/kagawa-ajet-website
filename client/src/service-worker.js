@@ -27,8 +27,6 @@ self.addEventListener('push', event => {
 })
 
 self.addEventListener('notificationclick', event => {
-  event.notification.close()
-
   if (!event.notification.data.url) return
 
   const urlToOpen = new URL(
@@ -52,6 +50,7 @@ self.addEventListener('notificationclick', event => {
       }
     })
 
+  event.notification.close()
   event.waitUntil(promiseChain)
 })
 
