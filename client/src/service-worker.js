@@ -20,6 +20,11 @@ self.addEventListener('push', event => {
     : options.vibrate || [
       50, 150, 50, 50, 50, 50, 50, 150, 50
     ]
+  if (options.data) {
+    options.data.url = options.data.url || '/'
+  } else {
+    options.data = { url: '/' }
+  }
 
   var promiseChain = self.registration.showNotification(data.title, options)
 
@@ -27,7 +32,7 @@ self.addEventListener('push', event => {
 })
 
 self.addEventListener('notificationclick', event => {
-  if (!event.notification.data.url) return
+  if (!event.notification.data || !event.notification.data.url) return
 
   const urlToOpen = new URL(
     event.notification.data.url,
