@@ -3,9 +3,10 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 const Subscriber = mongoose.model('Subscriber', new mongoose.Schema({
-  subscription: {
-    type: String,
-    required: true
+  subscription: String,
+  isDev: {
+    type: Boolean,
+    default: false
   }
 }))
 
@@ -24,9 +25,9 @@ db.once('open', () => {
   console.log('Connected to subscriber database')
 })
 
-const forAll = function (action) {
+const forAll = function (action, schema = {}) {
   return new Promise((resolve, reject) => {
-    Subscriber.find({}, (err, docs) => {
+    Subscriber.find(schema, (err, docs) => {
       if (err) reject(err)
 
       docs.map(doc => action(JSON.parse(doc.subscription), doc._id))
@@ -35,10 +36,15 @@ const forAll = function (action) {
   })
 }
 
-const add = function (subscription) {
+const forDev = function (action) {
+  forAll(action, { isDev: true })
+}
+
+const add = function (subscription, isDev = false) {
   return new Promise((resolve, reject) => {
     Subscriber.create({
-      subscription: JSON.stringify(subscription)
+      subscription: JSON.stringify(subscription),
+      isDev
     }, (err, instance) => {
       if (err) reject(err)
     })
@@ -55,6 +61,7 @@ const remove = function (id) {
 
 module.exports = {
   forAll,
+  forDev,
   add,
   remove
 }

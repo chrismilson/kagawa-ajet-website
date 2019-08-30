@@ -12,6 +12,26 @@ webpush.setVapidDetails(
   pushSettings.vapidPrivateKey
 )
 
+pushRouter.post('/subscribe/dev', (req, res) => {
+  const subscription = req.body
+
+  subs.addDev(subscription)
+    .catch(console.error)
+
+  res.status(201).json({})
+
+  const payload = JSON.stringify({
+    title: 'Devin!',
+    options: {
+      body: 'You will get dev notifications!'
+    }
+  })
+
+  webpush
+    .sendNotification(subscription, payload)
+    .catch(console.error)
+})
+
 pushRouter.post('/subscribe', (req, res) => {
   const subscription = req.body
 
@@ -30,6 +50,35 @@ pushRouter.post('/subscribe', (req, res) => {
   webpush
     .sendNotification(subscription, payload)
     .catch(console.error)
+})
+
+pushRouter.post('/notify/dev', auth, (req, res) => {
+  if (req.body.serverMessage) {
+    console.log(req.body.serverMessage)
+    console.log(JSON.parse(req.body.payload))
+  }
+
+  subs.forDev((subscription, id) => {
+    webpush
+      .sendNotification(subscription, req.body.payload)
+      .catch((err) => {
+        if (err.statusCode === 404 || err.statusCode === 410) {
+          subs.remove(id)
+        } else {
+          console.error(err)
+        }
+      })
+  })
+    .then(() => res.status(200).json({
+      message: 'Success'
+    }))
+    .catch(err => {
+      console.error(err)
+      res.status(500).json({
+        message: 'Failed',
+        error: 'Could not send'
+      })
+    })
 })
 
 pushRouter.post('/notify', auth, (req, res) => {
