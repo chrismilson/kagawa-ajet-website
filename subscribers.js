@@ -37,7 +37,7 @@ const forAll = function (action, schema = {}) {
 }
 
 const forDev = function (action) {
-  forAll(action, { isDev: true })
+  return forAll(action, { isDev: true })
 }
 
 const add = function (subscription, isDev = false) {
