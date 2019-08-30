@@ -13,6 +13,6 @@
 		}
 	],
 	"background_color": "#326A8A",
-	"start_url": "/",
+	"start_url": "/?source=pwa",
 	"display": "standalone"
 }
