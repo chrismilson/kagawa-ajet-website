@@ -42,7 +42,11 @@ self.addEventListener('notificationclick', event => {
   })
     .then((windowClients) => {
       if (windowClients.length > 0) {
-        return windowClients[0].focus()
+        return windowClients[0].focus().then(client => {
+          if ('navigate' in client) {
+            return client.navigate(urlToOpen)
+          }
+        })
       } else {
         return clients.openWindow(urlToOpen)
       }
