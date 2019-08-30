@@ -29,8 +29,7 @@ const forAll = function (action, schema = {}) {
   return new Promise((resolve, reject) => {
     Subscriber.find(schema, (err, docs) => {
       if (err) reject(err)
-
-      docs.map(doc => action(JSON.parse(doc.subscription), doc._id))
+      else docs.map(doc => action(JSON.parse(doc.subscription), doc._id))
     })
     resolve()
   })
