@@ -125,11 +125,6 @@ class Calendar extends React.Component {
       events: []
     }
 
-    var dateSet = moment(props.match.params.date, 'YYYY-M-D')
-    if (dateSet.isValid()) {
-      this.state.current = dateSet
-    }
-
     this.getEvents = this.getEvents.bind(this)
     this.setDate = this.setDate.bind(this)
     this.next = this.next.bind(this)
@@ -198,6 +193,10 @@ class Calendar extends React.Component {
   }
 
   componentDidMount () {
+    var dateSet = moment(this.props.match.params.date, 'YYYY-M-D')
+    if (dateSet.isValid()) {
+      this.setState(() => ({ current: dateSet }))
+    }
     this.getEvents()
     document.addEventListener('keydown', this.handleKeyPress)
   }
