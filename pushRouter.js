@@ -15,7 +15,7 @@ webpush.setVapidDetails(
 pushRouter.post('/subscribe/dev', (req, res) => {
   const subscription = req.body
 
-  subs.addDev(subscription)
+  subs.add(subscription, true)
     .catch(console.error)
 
   res.status(201).json({})
