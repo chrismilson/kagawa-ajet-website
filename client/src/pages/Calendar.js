@@ -188,16 +188,16 @@ class Calendar extends React.Component {
         this.next()
         break
       default:
-        console.log(event.key)
     }
   }
 
   componentDidMount () {
     var dateSet = moment(this.props.match.params.date, 'YYYY-M-D')
     if (dateSet.isValid()) {
-      this.setState(() => ({ current: dateSet }))
+      this.setDate(dateSet)
+    } else {
+      this.getEvents()
     }
-    this.getEvents()
     document.addEventListener('keydown', this.handleKeyPress)
   }
 
@@ -207,6 +207,7 @@ class Calendar extends React.Component {
 
   render () {
     if (this.props.match.params.date === 'event') return null
+
     return (
       <div className='Calendar'>
         {/* <div className='sidebar'>
