@@ -44,6 +44,8 @@ This can hopefully consolidate them all into an easy to service bundle.
     - [ ] Naoshima ***get a tanuki picture***
     - [ ] Zentsuji ***none***
 - [ ] Make line-bot
+- [ ] Gus's transport page
+- [ ] Kumamoto AJET tax page link
 
 ## Done list
 
