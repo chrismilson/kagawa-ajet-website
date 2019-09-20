@@ -1,10 +1,12 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown/with-html'
 import moment from 'moment'
+import ReactMarkdown from 'react-markdown'
 import { FaMapMarkerAlt, FaAngleLeft, FaAngleRight } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 import { RouterLink } from '../../../components/MDPage'
 import Loading from '../../../components/Loading'
+import ToggleView from '../../../components/ToggleView'
 
 import './EventCalendar.scss'
 
@@ -59,12 +61,14 @@ const Event = React.forwardRef((props, ref) => {
             : null
         }
       </div>
-      <ReactMarkdown
-        className='description'
-        renderers={{ link: RouterLink }}
-        source={props.event.description}
-        escapeHtml={false}
-      />
+      <ToggleView>
+        <ReactMarkdown
+          className='description'
+          renderers={{ link: RouterLink }}
+          source={props.event.description}
+          escapeHtml={false}
+        />
+      </ToggleView>
     </div>
   )
 })
