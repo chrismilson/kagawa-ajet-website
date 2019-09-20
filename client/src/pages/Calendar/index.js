@@ -5,13 +5,10 @@ import { FaMapMarkerAlt, FaTimes } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown/with-html'
 import axios from 'axios'
 
-import Page from './Page'
+import Page from '../Page'
 
-import {
-  // DatePicker,
-  MonthCalendar,
-  EventCalendar
-} from '../components/calendar'
+import EventCalendar from './EventCalendar'
+import MonthCalendar from './MonthCalendar'
 
 import './Calendar.scss'
 

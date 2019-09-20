@@ -3,8 +3,8 @@ import ReactMarkdown from 'react-markdown/with-html'
 import moment from 'moment'
 import { FaMapMarkerAlt, FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
-import { RouterLink } from '../MDPage'
-import Loading from '../Loading'
+import { RouterLink } from '../../../components/MDPage'
+import Loading from '../../../components/Loading'
 
 import './EventCalendar.scss'
 
