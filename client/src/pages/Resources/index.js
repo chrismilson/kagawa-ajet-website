@@ -1,19 +1,28 @@
 import React from 'react'
-import Page from './Page'
+import Page from '../Page'
 import { Route, Link } from 'react-router-dom'
 import { FaExternalLinkAlt, FaEnvelope } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown'
 
 import './Resources.scss'
+import renderers from '../renderers'
 import NewJetResources from './NewJetResources'
-import renderers from './renderers'
+import md from './mdPages'
 
-var res = [
+const res = [
   {
     name: 'New JET Resources',
-    type: 'local',
-    path: '/resources/new-jets/',
+    type: 'local-react',
+    path: '/resources/new-jets',
+    component: NewJetResources,
     description: 'Some resources we put together for incoming JETs.'
+  },
+  {
+    name: 'Transportation',
+    type: 'local-md',
+    path: '/resources/transport',
+    md: md.transport,
+    description: 'Wondering how to get around Japan? look no further!'
   },
   {
     name: 'National AJET',
@@ -64,7 +73,7 @@ var res = [
 
 function ResourceMemo (props) {
   let title
-  switch (props.res.type) {
+  switch (props.res.type.split('-', 1)[0]) {
     case 'local':
       title = (
         <div className='title'>
@@ -146,8 +155,27 @@ function Main (props) {
 function Resources (props) {
   return (
     <Page className='Resources'>
-      <Route exact path='/resources' component={() => <Main />} />
-      <Route path='/resources/new-jets' render={NewJetResources} />
+      <Route exact path='/resources' render={() => <Main />} />
+      {
+        res.filter(r => r.type.match(/^local/)).map((r, idx) => {
+          var match = r.type.match(/^local-(.*)/)
+          switch (match ? match[1] : null) {
+            case 'react':
+              return <Route key={idx} path={r.path} render={r.component} />
+            case 'markdown':
+            case 'md':
+              return (
+                <Route
+                  key={idx}
+                  path={r.path}
+                  render={() => r.md}
+                />
+              )
+            default:
+              return null
+          }
+        })
+      }
     </Page >
   )
 }

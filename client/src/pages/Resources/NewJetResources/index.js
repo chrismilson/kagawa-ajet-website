@@ -3,10 +3,24 @@ import ReactMarkdown from 'react-markdown'
 import axios from 'axios'
 import { Route, Link } from 'react-router-dom'
 
-import pages from './new-jet-resources'
-import renderers from './renderers'
+import renderers from '../../renderers'
 
 import './NewJetResources.scss'
+import * as thumbs from './thumbs'
+import * as images from './images'
+
+export { images }
+
+var pages = [
+  'What to Bring'
+].map(p => ({
+  name: p,
+  path: p.toLowerCase().replace(/ /g, '-'),
+  md: require('./pages/' + p.toLowerCase().replace(/ /g, '-') + '.md'),
+  thumbnail: thumbs[p.toLowerCase().split(' ').map((word, i) => {
+    return i === 0 ? word : word.charAt(0).toUpperCase() + word.substr(1)
+  }).join('')]
+}))
 
 class ResourcePage extends React.Component {
   constructor (props) {
