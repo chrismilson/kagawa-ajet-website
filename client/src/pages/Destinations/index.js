@@ -28,6 +28,19 @@ const dests = [
 ].map(p => {
   var place = p.name.split(/ - /)[0].toLowerCase()
   var dir = './' + place + '/'
+  let thumb
+
+  switch (p.thumb) {
+    case 'jpg':
+      thumb = require(dir + place + '.jpg')
+      break
+    case 'png':
+      thumb = require(dir + place + '.png')
+      break
+    default:
+      thumb = require(dir + place + '.jpeg')
+  }
+
   var component = p.component || <MDPage
     fName={require(dir + place + '.md')}
     images={require(dir + 'images')}
@@ -36,7 +49,7 @@ const dests = [
   return {
     name: p.name,
     path: place,
-    thumbnail: require(dir + place + '.jpeg'),
+    thumbnail: thumb,
     component: component
   }
 })

@@ -1,59 +1,40 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
-import axios from 'axios'
 import { Route, Link } from 'react-router-dom'
 
-import './NewJetResources.scss'
-import * as thumbs from './thumbs'
-import * as images from './images'
+import MDPage from '../../../components/MDPage'
 
-export { images }
+import './NewJetResources.scss'
 
 var pages = [
-  'What to Bring'
-].map(p => ({
-  name: p,
-  path: p.toLowerCase().replace(/ /g, '-'),
-  md: require('./pages/' + p.toLowerCase().replace(/ /g, '-') + '.md'),
-  thumbnail: thumbs[p.toLowerCase().split(' ').map((word, i) => {
-    return i === 0 ? word : word.charAt(0).toUpperCase() + word.substr(1)
-  }).join('')]
-}))
+  { name: 'What to Bring', thumb: 'png' }
+].map(p => {
+  var place = p.name.toLowerCase().replace(/ /g, '-')
+  var dir = './' + place + '/'
+  let thumb
 
-class ResourcePage extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      md: ''
-    }
-
-    this.getSrc = this.getSrc.bind(this)
-
-    this.getSrc()
+  switch (p.thumb) {
+    case 'jpg':
+      thumb = require(dir + place + '.jpg')
+      break
+    case 'png':
+      thumb = require(dir + place + '.png')
+      break
+    default:
+      thumb = require(dir + place + '.jpeg')
   }
 
-  getSrc () {
-    axios.get(this.props.src)
-      .then(res => {
-        this.setState({
-          md: res.data
-        })
-      })
-      .catch(err => console.log(err))
-  }
+  var component = p.component || <MDPage
+    fName={require(dir + place + '.md')}
+    images={require(dir + 'images')}
+  />
 
-  render () {
-    return (
-      <div className='ResourcePage'>
-        <ReactMarkdown
-          source={this.state.md}
-          escapeHtml={false}
-        />
-      </div>
-    )
+  return {
+    name: p.name,
+    path: place,
+    thumbnail: thumb,
+    component: component
   }
-}
+})
 
 function MenuItem (props) {
   return (
@@ -94,7 +75,7 @@ function NewJetResources (props) {
           <Route
             key={idx}
             path={'/resources/new-jets/' + page.path}
-            render={() => <ResourcePage src={page.md} />}
+            render={() => page.component}
           />
         ))
       }
