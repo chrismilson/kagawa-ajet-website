@@ -3,7 +3,9 @@ import ReactMarkdown from 'react-markdown'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-function RouterLink (props) {
+import './MDPage.scss'
+
+export function RouterLink (props) {
   return (
     props.href.match(/^\//)
       ? <Link to={props.href}>{props.children}</Link>
@@ -44,23 +46,20 @@ class MDPage extends React.Component {
   }
 
   imageRenderer (props) {
-    var match = props.src.match(/^local:(.*)/i)
-    if (match) {
-      if (!(match[1] in this.props.images)) return null
+    if (!(props.src in this.props.images)) return null
 
-      return (
-        <img {...props}
-          alt={props.alt}
-          src={this.props.images[match[1]]}
-        />
-      )
-    }
-    return <img {...props} alt={props.alt} />
+    return (
+      <img {...props}
+        alt={props.alt}
+        src={this.props.images[props.src]}
+      />
+    )
   }
 
   render () {
     return (
       <ReactMarkdown
+        className={'MDPage ' + (this.props.className || '')}
         renderers={{
           link: RouterLink,
           image: this.imageRenderer

@@ -3,8 +3,6 @@ import ReactMarkdown from 'react-markdown'
 import axios from 'axios'
 import { Route, Link } from 'react-router-dom'
 
-import renderers from '../../renderers'
-
 import './NewJetResources.scss'
 import * as thumbs from './thumbs'
 import * as images from './images'
@@ -51,7 +49,6 @@ class ResourcePage extends React.Component {
         <ReactMarkdown
           source={this.state.md}
           escapeHtml={false}
-          renderers={renderers}
         />
       </div>
     )

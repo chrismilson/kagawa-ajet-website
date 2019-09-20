@@ -5,7 +5,7 @@ import { FaExternalLinkAlt, FaEnvelope } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown'
 
 import './Resources.scss'
-import renderers from '../renderers'
+import { RouterLink } from '../../components/MDPage'
 import NewJetResources from './NewJetResources'
 import md from './mdPages'
 
@@ -127,7 +127,7 @@ function ResourceMemo (props) {
       <ReactMarkdown
         className='description'
         source={props.res.description}
-        renderers={renderers}
+        renderers={{ link: RouterLink }}
       />
     </div>
   )

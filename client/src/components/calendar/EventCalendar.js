@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown/with-html'
 import moment from 'moment'
 import { FaMapMarkerAlt, FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
-import renderers from '../../pages/renderers'
+import { RouterLink } from '../MDPage'
 import Loading from '../Loading'
 
 import './EventCalendar.scss'
@@ -61,7 +61,7 @@ const Event = React.forwardRef((props, ref) => {
       </div>
       <ReactMarkdown
         className='description'
-        renderers={renderers}
+        renderers={{ link: RouterLink }}
         source={props.event.description}
         escapeHtml={false}
       />

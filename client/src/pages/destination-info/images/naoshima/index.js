@@ -1,6 +1,0 @@
-export { default as libertyOfStatue } from './liberty-of-statue.jpg'
-export { default as yellowPumpkin } from './yellow-pumpkin.jpg'
-export { default as chichu } from './chichu.jpg'
-export { default as iLoveYu } from './i-love-yu.jpg'
-export { default as benesseHouse } from './benesse-house.jpg'
-export { default as leeUrfanMuseum } from './lee-urfan-museum.jpg'

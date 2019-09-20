@@ -1,0 +1,37 @@
+.Destinations {
+  .Menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+
+    .MenuItem {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-basis: percentage(1/3);
+      
+      img {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      .MenuItem {
+        flex-basis: 50%;
+      }
+    }
+
+    @media only screen and (max-width: 400px) {
+      .MenuItem {
+        flex-basis: 100%;
+      }
+    }
+  }
+}
