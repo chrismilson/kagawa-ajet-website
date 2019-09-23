@@ -2,7 +2,6 @@ import React from 'react'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 import { FaMapMarkerAlt, FaAngleLeft, FaAngleRight } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 
 import { RouterLink } from '../../../components/MDPage'
 import Loading from '../../../components/Loading'
