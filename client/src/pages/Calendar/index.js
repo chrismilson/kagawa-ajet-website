@@ -135,8 +135,8 @@ class Calendar extends React.Component {
     this.setState(() => ({ fetched: false }))
 
     if (this.state.type === 'month') {
-      start.subtract(start.day())
-      end.add(7 - end.day())
+      start.subtract(start.day(), 'days')
+      end.add(7 - end.day(), 'days')
     }
 
     axios.get('/api/calendar/events', {
