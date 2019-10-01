@@ -27,7 +27,7 @@ const dests = [
   // { name: 'Takamatsu - 高松' },
   { name: 'Zentsuji - 善通寺' }
 ].map(p => {
-  var place = p.name.split(/ - /)[0].toLowerCase()
+  var place = p.name.split(/ - /)[0].toLowerCase().replace(' ', '-')
   var dir = './' + place + '/'
   let thumb
 
