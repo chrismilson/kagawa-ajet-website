@@ -24,7 +24,7 @@ const dests = [
   // { name: 'Sakaide - 坂出' },
   // { name: 'Sanuki - 讃岐' },
   { name: 'Shōdoshima - 小豆島' },
-  // { name: 'Takamatsu - 高松' },
+  { name: 'Takamatsu - 高松' },
   { name: 'Zentsuji - 善通寺' }
 ].map(p => {
   var place = p.name.split(/ - /)[0].toLowerCase().replace(' ', '-')
