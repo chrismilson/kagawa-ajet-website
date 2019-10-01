@@ -20,9 +20,10 @@ const dests = [
   { name: 'Marugame - 丸亀' },
   { name: 'Mitoyo - 三豊' },
   { name: 'Naoshima - 直島' },
+  { name: 'Ritsurin Garden - 栗林公園' },
   // { name: 'Sakaide - 坂出' },
   // { name: 'Sanuki - 讃岐' },
-  // { name: 'Shodoshima - 小豆島' },
+  { name: 'Shōdoshima - 小豆島' },
   // { name: 'Takamatsu - 高松' },
   { name: 'Zentsuji - 善通寺' }
 ].map(p => {
