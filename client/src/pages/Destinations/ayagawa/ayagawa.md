@@ -1,13 +1,13 @@
 # Ayagawa - 綾川
 
-Located south-southeast of [Takamatsu](/takamatsu), Ayagawa is a semi-rural town host to
-roughly 25,000 people. The town offers little in the way of sightseeing, but
-plenty of famous udon shops populate the landscape. The northern part of Ayagawa
-(formerly known as Ryōnan) is more densely populated and contains the more urban
-aspects of the town. There is an AEON shopping mall, various brick-and-mortar
-stores, the city hall, and a lot of udon shops. The southern part —formerly
-Ayakami — is much less populated, but holds the majority of the town's more
-famous udon shops.
+Located south-southeast of [Takamatsu](/takamatsu), Ayagawa is a semi-rural
+town host toroughly 25,000 people. The town offers little in the way of
+sightseeing, butplenty of famous udon shops populate the landscape. The northern
+part of Ayagawa(formerly known as Ryōnan) is more densely populated and contains
+the more urbanaspects of the town. There is an AEON shopping mall, various
+brick-and-mortarstores, the city hall, and a lot of udon shops. The southern
+part —formerlyAyakami — is much less populated, but holds the majority of the
+town's morefamous udon shops.
 
 ## Tourist Attractions
 
