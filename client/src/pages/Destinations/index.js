@@ -31,15 +31,19 @@ const dests = [
   var dir = './' + place + '/'
   let thumb
 
-  switch (p.thumb) {
-    case 'jpg':
-      thumb = require(dir + place + '.jpg')
-      break
-    case 'png':
-      thumb = require(dir + place + '.png')
-      break
-    default:
-      thumb = require(dir + place + '.jpeg')
+  try {
+    switch (p.thumb) {
+      case 'jpg':
+        thumb = require(dir + place + '.jpg')
+        break
+      case 'png':
+        thumb = require(dir + place + '.png')
+        break
+      default:
+        thumb = require(dir + place + '.jpeg')
+    }
+  } catch (e) {
+    thumb = undefined
   }
 
   var component = p.component || <MDPage
@@ -56,17 +60,19 @@ const dests = [
 })
 
 function MenuItem (props) {
-  return (
-    <Link
-      className='MenuItem'
-      to={
-        '/destinations/' + props.dest.path
-      }
-    >
-      <img src={props.dest.thumbnail} alt={props.dest.name} />
-      <h3>{props.dest.name}</h3>
-    </Link>
-  )
+  return props.dest.thumbnail
+    ? (
+      <Link
+        className='MenuItem'
+        to={
+          '/destinations/' + props.dest.path
+        }
+      >
+        <img src={props.dest.thumbnail} alt={props.dest.name} />
+        <h3>{props.dest.name}</h3>
+      </Link>
+    )
+    : null
 }
 
 function Menu (props) {
