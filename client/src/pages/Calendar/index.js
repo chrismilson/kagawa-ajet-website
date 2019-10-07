@@ -207,13 +207,6 @@ class Calendar extends React.Component {
 
     return (
       <div className='Calendar'>
-        {/* <div className='sidebar'>
-          <DatePicker
-            current={this.state.current}
-            today={this.state.today}
-            setDate={this.setDate}
-          />
-        </div> */}
         {
           (() => {
             switch (this.state.type) {
@@ -245,10 +238,10 @@ class Calendar extends React.Component {
 
 function CalendarPage (props) {
   return (
-    <div className='CalendarPage'>
+    <Page unbound className='CalendarPage'>
       <Route path='/calendar/event/:id' component={EventPage} />
       <Route exact path='/calendar/:date?/:type?' component={Calendar} />
-    </div>
+    </Page>
   )
 }
 

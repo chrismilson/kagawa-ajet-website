@@ -3,7 +3,6 @@
 .Calendar {
   display: flex;
   width: 100%;
-  margin-top: 5rem;
   min-height: calc(100vh - 10rem);
   user-select: none;
   justify-content: stretch;
@@ -11,40 +10,6 @@
   .MainCalendar {
     flex: 1;
     max-width: 100%;
-  }
-
-  .EventCalendar {
-    display: none;
-    width: 100%;
-    margin-top: 5rem;
-
-    .picker {
-      background-color: $color-2;
-    }
-
-    .events {
-      .Event {
-        padding: 2rem;
-  
-        &:not(:first-child) {
-          border-top: 1px solid darken($color-2, 20%);
-        }
-  
-        .description {
-          padding: 0 1rem;
-          a {
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-  }
-
-  .sidebar {
-    max-width: 17rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   @media only screen and (max-width: 850px) {
@@ -55,17 +20,12 @@
     .EventCalendar {
       display: flex;
     }
-
-    .sidebar {
-      display: none;
-    }
   }
 }
 
 .EventPage {
   display: flex;
   min-height: calc(100vh - 10rem);
-  margin-top: 5rem;
 
   .event {
     width: 100%;

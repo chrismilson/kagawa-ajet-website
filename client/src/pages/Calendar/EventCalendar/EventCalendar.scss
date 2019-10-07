@@ -1,18 +1,21 @@
 @import '../../../variables.scss';
 
 .EventCalendar {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   min-height: calc(100vh - 15rem);
-
+  width: 100%;
+  
   .picker {
     width: 100%;
     display: flex;
     position: fixed;
     top: 5rem;
     height: 5rem;
+
+    background-color: $color-2;
 
     .date {
       flex: 1;
@@ -44,10 +47,22 @@
       display: flex;
       flex-direction: column;
       width: 100%;
+      padding: 2rem;
 
       .detailLink {
         text-decoration: underline;
         margin-top: 1rem;
+      }
+
+      .description {
+        padding: 0 1rem;
+        a {
+          text-decoration: underline;
+        }
+      }
+
+      &:not(:first-child) {
+        border-top: 1px solid darken($color-2, 20%);
       }
     }
   }
