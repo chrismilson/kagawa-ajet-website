@@ -8,18 +8,19 @@ function Page (props) {
     <div className={[
       'Page',
       props.className,
-      props.unbound ? 'unbound' : ''
+      props.unbound ? 'unbound' : '',
+      props.unmargin ? 'unmargin' : ''
     ].join(' ')}>
       <Meta>
-        {
-          props.title
-            ? <title>{props.title}</title>
-            : 'Kagawa AJET'
-        }
+        <title>
+          {
+            'Kagawa AJET' + (props.title ? ' - ' + props.title : '')
+          }
+        </title>
         {
           props.description
             ? <meta name='description' content={props.description} />
-            : null
+            : 'Information and events for those in, or interested in Kagawa!'
         }
       </Meta>
       {props.children}

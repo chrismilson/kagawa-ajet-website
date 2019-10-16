@@ -2,11 +2,14 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	margin: 5rem auto auto;
 	width: 100%;
 	
 	&:not(.unbound) {
 		max-width: 50rem;
+	}
+
+	&:not(.unmargin) {
+		margin: 5rem auto auto;
 	}
 	
 	.col {
