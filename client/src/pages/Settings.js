@@ -64,7 +64,7 @@ class EnableButton extends React.Component {
 
 function Settings (props) {
   return (
-    <Page className='Settings'>
+    <Page className='Settings' title='Settings'>
       <div className='col'>
         <h1>Settings</h1>
         <div className='options'>

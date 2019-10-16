@@ -3,7 +3,7 @@ import Page from './Page'
 
 function Default () {
   return (
-    <Page className='Default'>
+    <Page className='Default' title='Page Missing'>
       <div className='col text'>
         <h1>Page not found...</h1>
         <p>

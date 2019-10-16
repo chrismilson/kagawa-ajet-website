@@ -23,7 +23,7 @@ PERFORMANCE OF THIS SOFTWARE.
 
 function License (props) {
   return (
-    <Page className='License'>
+    <Page className='License' title='License'>
       <div className='col text'>
         <ReactMarkdown source={MARKDOWN} />
       </div>

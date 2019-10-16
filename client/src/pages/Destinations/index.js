@@ -77,19 +77,19 @@ function MenuItem (props) {
 
 function Menu (props) {
   return (
-    <div className='Menu'>
+    <Page className='Menu' title='Destinations'>
       {
         props.dests.map((d, idx) => (
           <MenuItem key={idx} dest={d} />
         ))
       }
-    </div>
+    </Page>
   )
 }
 
 function Destinations (props) {
   return (
-    <Page className='Destinations'>
+    <div className='Destinations'>
       <Route
         exact
         path='/destinations'
@@ -100,11 +100,15 @@ function Destinations (props) {
           <Route
             key={idx}
             path={'/destinations/' + d.path}
-            render={() => d.component}
+            render={() => (
+              <Page title={d.name}>
+                {d.component}
+              </Page>
+            )}
           />
         ))
       }
-    </Page>
+    </div>
   )
 }
 

@@ -49,7 +49,15 @@ class EventPage extends React.Component {
     }
 
     return (
-      <Page className='EventPage'>
+      <Page
+        unmargin
+        className='EventPage'
+        title={
+          this.state.event
+            ? this.state.event.summary
+            : undefined
+        }
+      >
         {
           this.state.event === undefined
             ? <div className='loading col'>Loading...</div>
@@ -238,7 +246,7 @@ class Calendar extends React.Component {
 
 function CalendarPage (props) {
   return (
-    <Page unbound className='CalendarPage'>
+    <Page unbound className='CalendarPage' title='Events'>
       <Route path='/calendar/event/:id' component={EventPage} />
       <Route exact path='/calendar/:date?/:type?' component={Calendar} />
     </Page>

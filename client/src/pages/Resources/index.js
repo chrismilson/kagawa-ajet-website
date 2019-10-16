@@ -154,7 +154,7 @@ function Main (props) {
 
 function Resources (props) {
   return (
-    <Page className='Resources'>
+    <Page className='Resources' title='Resources'>
       <Route exact path='/resources' render={() => <Main />} />
       {
         res.filter(r => r.type.match(/^local/)).map((r, idx) => {
